@@ -11,13 +11,14 @@ const Home = () => {
         {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:1},
         {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:2},
         {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:3},
-        {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:4}
+        {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:4},
+        {title:'Business Tax Returns', description:'Companies, Trusts & Partnerships.including Reports.Enter online or upload', price:'$275', button:'TRIAL NOW',id:5}
     ]);
 
     return (
         <>
         <Banner1 image={parallaxImage} text="This is a test message" button="CONTACT US"/>
-        <Cards cards = {cards}/>
+        <Cards cards = {cards} />
         </>
     );
 }
