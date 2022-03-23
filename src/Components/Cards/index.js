@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
 import {CardGroup , Card, Button, Row} from 'react-bootstrap';
+import styles from "./styles";
 
 const Cards = ({cards}) => {
     return (
@@ -11,7 +11,7 @@ const Cards = ({cards}) => {
                 <Card style={{ width: '18rem', margin: 10, textAlign:'center',}} className="align-self-center" key={card.id}>
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
-                <Card.Title >{card.title}</Card.Title>
+                <Card.Title style={styles.headerText}>{card.title}</Card.Title>
                 <Card.Text>{card.description1}</Card.Text>
                 <Card.Text>{card.description2}</Card.Text>
                 <Card.Text>{card.description3}</Card.Text>
