@@ -43,8 +43,7 @@ function App() {
           </div>
         </nav>
       </header>
-
-      <main className="flex-shrink-0 container"><Home /></main>
+      <main className="flex-shrink-0"><Home /></main>
     </React.Fragment>
   );
 }
