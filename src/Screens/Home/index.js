@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import Cards from "../../Components/Cards";
+// import Cards from "../../Components/Cards";
+import Cards from "../../components/Cards/index";
 import parallaxImage from "../../Assets/Images/parallaxImage.jpg";
-import Banner1 from "../../Components/Banner1";
+import Banner1 from "../../components/Banner1";
 
 const Home = () => {
 
