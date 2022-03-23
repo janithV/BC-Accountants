@@ -18,7 +18,7 @@ const Home = () => {
 
     return (
         <>
-        <Banner1 image={parallaxImage} text="This is a test message" button="CONTACT US"/>
+        <Banner1 image={parallaxImage} header="ONLINE ACCOUNTANTS & TAX AGENTS" button="CONTACT US" description={"Australia's original and most comprehensive site for online tax returns & solutions"}/>
         <Cards cards = {cards} />
         </>
     );

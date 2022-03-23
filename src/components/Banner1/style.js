@@ -1,14 +1,24 @@
 
 const styles = ({
     banner1: {
-        padding: 20,
         top: '50%',
         left: '50%',
         position: 'absolute',
         transform: 'translate(-50%, -50%)',
-        backgroundColor:'#fff',
         alignItems: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        color: '#fff',
+        textAlign: 'center'
+        
+    },
+    banner1Header: {
+        fontSize: '30px',
+    },
+    banner1Description: {
+        marginBottom: 20,
+    },
+    button:{
+        marginTop:30,
     }
 });
 

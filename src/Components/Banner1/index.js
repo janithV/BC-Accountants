@@ -2,16 +2,21 @@ import React from "react"
 import { Parallax } from "react-parallax";
 import styles from "./style";
 
-const Banner1 = ({image, text, button}) => {
+const Banner1 = ({image, header, button, description}) => {
     return( 
-        <Parallax style={{paddingTop:60}} bgImage={image}>
-            <div style={{height:500}}>
+        <>
+        <Parallax style={{paddingTop:60}} bgImage={image} strength={'400'}>
+            <div style={{height:400, backgroundColor: '#00000082'}}>
                 <div style={styles.banner1} className="d-flex bd-highlight mb-3 example-parent">
-                    <div>{text} {"\n"}</div>
-                  <div><button className="align-self-center">{button}</button></div>
+                    <div style={styles.banner1Header}>{header} {"\n"}</div>
+                  <div style={styles.button}>
+                      <div style={styles.banner1Description}>{description} {"\n"}</div>
+                      <button className="align-self-center">{button}</button></div>
                 </div>
             </div>
         </Parallax>
+        {/* <div style={{height: '100vh'}}></div> */}
+        </>
     );
 }
 
