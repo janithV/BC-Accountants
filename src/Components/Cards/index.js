@@ -12,7 +12,9 @@ const Cards = ({cards}) => {
                 {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
                 <Card.Body>
                 <Card.Title >{card.title}</Card.Title>
-                <Card.Text>{card.description}</Card.Text>
+                <Card.Text>{card.description1}</Card.Text>
+                <Card.Text>{card.description2}</Card.Text>
+                <Card.Text>{card.description3}</Card.Text>
                 <h2>{card.price}</h2>
                 <Button variant="primary">{card.button}</Button>
                 </Card.Body>
