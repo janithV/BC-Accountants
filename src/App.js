@@ -2,6 +2,7 @@ import logo from "./bclogonew.png";
 import "./App.css";
 import React from "react";
 import Home from "./Screens/Home";
+import ReturnDetails from "./components/FormComponents/ReturnDetails";
 
 function App() {  
   return (
@@ -43,7 +44,9 @@ function App() {
           </div>
         </nav>
       </header>
-      <main className="flex-shrink-0"><Home /></main>
+      {/* <main className="flex-shrink-0"><Home /></main> */}
+      <main className="flex-shrink-0"><ReturnDetails /></main>
+      
     </React.Fragment>
   );
 }
