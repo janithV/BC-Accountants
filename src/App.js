@@ -44,8 +44,8 @@ function App() {
           </div>
         </nav>
       </header>
-      {/* <main className="flex-shrink-0"><Home /></main> */}
-      <main className="flex-shrink-0"><ReturnDetails /></main>
+      <main className="flex-shrink-0"><Home /></main>
+      {/* <main className="flex-shrink-0"><ReturnDetails /></main> */}
       
     </React.Fragment>
   );

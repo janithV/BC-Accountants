@@ -33,6 +33,10 @@ const Home = () => {
         {title:'Tax Help', description1:'Need tax help?', description2:"Send us details for a fast response", price:'', button:'HELP!',id:16}
     ]);
 
+    const [taxKeys,setTaxKeys]=useState([
+        'Client Type','Lodging Due','Payment Due', 'Applies To'
+    ])
+
     const [taxDates,setTaxDates]=useState([
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
@@ -40,6 +44,18 @@ const Home = () => {
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
 
     ])
+
+    const [basKeys,setBasKeys]=useState([
+        'BAS Type','Usual Date','Extended Date', 'Applies To'
+    ])
+
+    const [basDueDates,setBasDueDates]=useState([
+        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
+        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
+        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
+        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'}
+    ])
+
 
     return (
         <>
@@ -69,11 +85,46 @@ const Home = () => {
                 <p>
                 BC Accountants has extended lodgement & payment dates for all return categories, providing we or another agent represented you as at 31st October 2019. Below is a 2019 return list that applies for our small business & small taxpayers.
                 </p>
-            </div>
            
-            <Table content ={taxDates}/>
+           
+            <Table content ={taxDates} keys={taxKeys} type='taxDue'/>
+            <ul>
+                <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
+                <li>Note 2 - Substituted Accounting Periods (SAP) may also apply to approved entities</li>
+            </ul>
+            </div>
+            <div>
             <Divider variant="middle" />
+            <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                </span> BAS Due Dates</h1>
+                <Divider variant="middle" />
+                <p>
+                Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
+                </p>
+                <Table content ={basDueDates} keys={basKeys} type='BAS'/>
+                <ul>
+                <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
+                <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
+            </ul>
+                </div>
+                <div>
+            <Divider variant="middle" />
+            <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                </span> Payroll Due Dates</h1>
+                <Divider variant="middle" />
+                <p>
+                Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
+                </p>
+                <Table content ={basDueDates} keys={basKeys} type='BAS'/>
+                <ul>
+                <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
+                <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
+            </ul>
+                </div>
         </div>
+        
         </>
     );
 }

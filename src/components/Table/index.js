@@ -1,23 +1,31 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
-function taxTable({content}) {
+function taxTable({content,type,keys}) {
+    
   return (
     <div> <Table bordered responsive>
     <thead>
       <tr>
-        <th>Client Type</th>
-        <th>Lodging Due</th>
-        <th>Payment Due</th>
-        <th>Applies To</th>
+          {keys.map((obj)=>(
+               <th>{obj}</th>
+          ))}
       </tr>
     </thead>
     <tbody>
-        {content.map((obj)=>(
+        {type==='taxDue' && content.map((obj)=>(
             <tr>
             <td>{obj.clientType}</td>
             <td>{obj.lodgingDue}</td>
             <td>{obj.paymentDue}</td>
+            <td>{obj.appliesTo}</td>
+          </tr>
+        ))}
+        {type==='BAS' &&content.map((obj)=>(
+            <tr>
+            <td>{obj.basType}</td>
+            <td>{obj.usualDate}</td>
+            <td>{obj.extendedDate}</td>
             <td>{obj.appliesTo}</td>
           </tr>
         ))}
