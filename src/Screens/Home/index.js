@@ -2,10 +2,12 @@ import React from "react";
 import { useState } from "react";
 import Cards from "../../components/Cards/index";
 import parallaxImage from "../../Assets/Images/parallaxImage.jpg";
+import calendarGif from "../../Assets/Images/calendar.gif"
 import Banner1 from "../../components/Banner1";
 import styles from "./style";
 import Banner2 from "../../components/Banner2";
-
+import Table from '../../components/Table/index'
+import Divider from '@mui/material/Divider';
 const Home = () => {
 
     const [name, setName] = useState('MNK');
@@ -31,6 +33,14 @@ const Home = () => {
         {title:'Tax Help', description1:'Need tax help?', description2:"Send us details for a fast response", price:'', button:'HELP!',id:16}
     ]);
 
+    const [taxDates,setTaxDates]=useState([
+        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
+        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
+        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
+        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
+
+    ])
+
     return (
         <>
         <Banner1 image={parallaxImage} header="ONLINE ACCOUNTANTS & TAX AGENTS" button="CONTACT US" description={"Australia's original and most comprehensive site for online tax returns & solutions"}/>
@@ -50,6 +60,19 @@ const Home = () => {
         </div>
         <Banner2 image={parallaxImage} header="Due Dates" />
         <div className="container" style={{height:'100vh'}}>
+            <div> 
+            <Divider variant="middle" />
+                <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                </span> Tax Due Dates</h1>
+                <Divider variant="middle" />
+                <p>
+                BC Accountants has extended lodgement & payment dates for all return categories, providing we or another agent represented you as at 31st October 2019. Below is a 2019 return list that applies for our small business & small taxpayers.
+                </p>
+            </div>
+           
+            <Table content ={taxDates}/>
+            <Divider variant="middle" />
         </div>
         </>
     );
