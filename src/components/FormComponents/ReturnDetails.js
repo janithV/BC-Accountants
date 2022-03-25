@@ -7,15 +7,31 @@ import { Divider } from '@mui/material';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import Select from 'react-select'
+import './ReturnDetails.css'
 
-const ReturnDetails = () => {
+function ReturnDetails () {
 
-    const [yearTopic, setYearTopic] = useState('Year')
-    const [returnTypeTopic, setReturnTypeTopic] = useState('Return Type')
-    const [taxResidencyTopic, setTaxResidency] = useState('Tax Residency')
-    const years = ["2022","2021","2020","2019","2018" ]
-    const returnTypes = ["Standard","Rental","Business","Standard & Rental","Working Holiday Visa","Student Discount","Return Not Necessary"]
-    const taxResidency = ["Australian Resident","Foreign Resident","Temporary Work Visa","Working Holiday Visa","Overseas Student Visa"]
+    const [yearTopic, setYearTopic] = useState(' ')
+    const [returnTypeTopic, setReturnTypeTopic] = useState(' ')
+    const [taxResidencyTopic, setTaxResidency] = useState(' ')
+    const years = [{value:"2022", label:"2022"},{value:"2021",label:"2021"},{value:"2020",label:"2020"},{value:"2019",label:"2019"},{value:"2018",label:"2018"} ]
+    const returnTypes = [{value:"Standard",label:"Standard $65"},{value:"Rental",label:"Rental $95"},{value:"Business",label:"Business $110"},{value:"Business & Rental",label:"Business & Rental $145"},{value:"Working Holiday Visa",label:"Working Holiday Visa $55"},{value:"Student Discount",label:"Student Discount $55"},{value:"Return Not Necessary",label:"Return Not Necessary $25"}]
+    const taxResidency = [{value:"Australian Resident",label:"Australian Resident"},{value:"Foreign Resident",label:"Foreign Resident"},{value:"Temporary Work Visa",label:"Temporary Work Visa"},{value:"Working Holiday Visa",label:"Working Holiday Visa"},{value:"Overseas Student Visa",label:"Overseas Student Visa"}]
+
+    function handleDropDownYears(e) {    
+        console.log(e)
+        setYearTopic(e.value)
+    }
+    function handleDropDownReturnTypes(e) {    
+        console.log(e)
+        setReturnTypeTopic(e.value)
+    }
+    function handleDropDownTaxResidency(e) {    
+        console.log(e)
+        setTaxResidency(e.value)
+    }
+
 
     const formik = useFormik({
         initialValues: {
@@ -35,42 +51,18 @@ const ReturnDetails = () => {
                 
             <form onSubmit={formik.handleSubmit}>
             <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+
               <h1>Return Details</h1>
-              <Dropdown style={{margin:10}}>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        {yearTopic}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {years.map((item)=> (
-                            <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
-                        ))}
-                    </Dropdown.Menu>
-             </Dropdown>
-             <Dropdown style={{margin:10}}>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        {returnTypeTopic}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {returnTypes.map((item)=> (
-                            <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
-                        ))}
-                    </Dropdown.Menu>
-             </Dropdown>  
-             <Dropdown style={{margin:10}}>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                        {taxResidencyTopic}
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        {taxResidency.map((item)=> (
-                            <Dropdown.Item href="#/action-1">{item}</Dropdown.Item>
-                        ))}
-                    </Dropdown.Menu>
-             </Dropdown>  
-             </div>
+
+              <Select className="select" onChange={handleDropDownYears} options={years} placeholder="Year" />  
+              <Select className="select" onChange={handleDropDownReturnTypes} options={returnTypes} placeholder="Return Type" />  
+              <Select className="select" onChange={handleDropDownTaxResidency} options={taxResidency} placeholder="Tax Residency" />  
+             
+            </div>
 
              <Divider style={{marginBottom:10 , marginTop:10}}/>
 
-            
+            <div style={{margin:10}}>
              <h1>Your Details</h1>
 
             <Row >
@@ -78,7 +70,8 @@ const ReturnDetails = () => {
                 <Col lg={3}>
                 <input
 
-                    style={{width:"100%" , margin:5}}id="name"
+                    className="infeilds"
+                    id="name"
                     name="name"
                     type="text"
                     placeholder="Name"
@@ -90,11 +83,11 @@ const ReturnDetails = () => {
                 <Col lg={3}>
                 {/* <label htmlFor="lastName">Last Name</label> */}
                 <input 
-                    style={{width:"100%" , margin:5}}
+                    className="infeilds"
                     id="fileNumber"
                     name="fileNumber"
                     type="text"
-                    placeholder="tax file number"
+                    placeholder="Tax File Number"
                     onChange={formik.handleChange}
                     value={formik.values.fileNumber}
                 />
@@ -102,11 +95,10 @@ const ReturnDetails = () => {
 
                 <Col lg={3}>
                 <input 
-                    style={{width:"100%" , margin:5}}
+                    className="infeilds"
                     id="birthdate"
                     name="birthdate"
                     type="date"
-                    // placeholder="tax file number"
                     onChange={formik.handleChange}
                     value={formik.values.birthdate}
                 />
@@ -114,7 +106,7 @@ const ReturnDetails = () => {
 
                 <Col lg={3}>
                 <input 
-                    style={{width:"100%" , margin:5}}
+                    className="infeilds"
                     id="group"
                     name="group"
                     type="text"
@@ -129,7 +121,7 @@ const ReturnDetails = () => {
 
                 <Col lg={3}>
                 <input 
-                    style={{width:"100%" , margin:5}}
+                    className="infeilds"
                     id="email"
                     name="email"
                     type="text"
@@ -141,7 +133,7 @@ const ReturnDetails = () => {
 
                 <Col lg={3}>
                 <input 
-                    style={{width:"100%" , margin:5}}
+                    className="infeilds"
                     id="mobileNum"
                     name="mobileNum"
                     type="text"
@@ -153,7 +145,7 @@ const ReturnDetails = () => {
 
                 <Col lg={3}>
                 <input 
-                    style={{width:"100%" , margin:5}}                  
+                    className="infeilds"                  
                     id="address"
                     name="address"
                     type="textarea"
@@ -164,10 +156,80 @@ const ReturnDetails = () => {
                 </Col>
 
             </Row>
+            </div>
                 {/* <button type="submit">Submit</button> */}
                 </form>
 
             </Container>
+
+            {
+                returnTypeTopic === "Rental" || returnTypeTopic ==="Business & Rental" ?
+
+                <>
+                    <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>  
+                        <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+                        <h1>Return Income</h1> 
+                        </div>
+                   </Container>
+                </>
+
+                :
+
+                " "
+
+            }
+
+            {
+                returnTypeTopic === "Business" || returnTypeTopic ==="Business & Rental" ?
+
+                <>
+                    <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>  
+                        <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+                        <h1>Business Income</h1> 
+                        </div>
+                   </Container>
+                </>
+
+                :
+
+                " "
+
+            }
+
+            {
+                returnTypeTopic === "Working Holiday Visa" ?
+
+                <>
+                    <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>  
+                        <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+                        <h1>WHV Income</h1> 
+                        </div>
+                   </Container>
+                </>
+
+                :
+
+                " "
+
+            }
+
+
+            {
+                returnTypeTopic === "Student Discount" ?
+
+                <>
+                    <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>  
+                        <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+                        <h1>Student Details</h1> 
+                        </div>
+                   </Container>
+                </>
+
+                :
+
+                " "
+
+            }
 
         </>
     );

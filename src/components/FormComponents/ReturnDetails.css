@@ -1,0 +1,19 @@
+.select {
+
+    margin: 10px;
+
+}
+
+.droplabel{
+    margin: 10px;
+    font-size: large;
+}
+
+.infeilds{
+    margin: 5px;
+    padding: 5px;
+    width: 95%;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
