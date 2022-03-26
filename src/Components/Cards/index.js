@@ -95,8 +95,7 @@ const Cards = ({cards}) => {
         `,
         css`
           color: rgb(250, 145, 145) !important;
-          background: rgb(248, 123, 123);
-          background: rgb(255, 255, 255);
+          background: rgb(255, 255, 255) !important;
         `
       ];
 
