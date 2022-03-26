@@ -1,11 +1,10 @@
 import React from "react";
-import {CardGroup , Card, Button, Row} from 'react-bootstrap';
-import styles from "./styles";
+import {Row} from 'react-bootstrap';
+import "./styles.css";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
 import { PrimaryButton as PrimaryButtonBase } from "../../components/misc/Buttons.js";
-import { Container, ContentWithPaddingXl } from "../../components/misc/Layouts.js";
 import { ReactComponent as SvgDecoratorBlob } from "../../Assets/Images/svg-decorator-blob-6.svg";
 
 const PlansContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;
@@ -96,12 +95,14 @@ const Cards = ({cards}) => {
         `,
         css`
           color: rgb(250, 145, 145) !important;
+          background: rgb(248, 123, 123);
+          background: rgb(255, 255, 255);
         `
       ];
 
     return (
         <>
-        <PlansContainer style={styles.PlansContainer}>
+        <PlansContainer style={{marginBottom:80}}>
         <Row xs={1} md={3} className="justify-content-center">
           {cards.map((card, index) => (
             <Plan key={index} featured={card.featured} css={(card.featured && card.type === 2 && highlightGradientsCss[2])}>
