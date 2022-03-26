@@ -12,25 +12,25 @@ const Home = () => {
 
     const [name, setName] = useState('MNK');
     const [cards1, setCards1] = useState ([
-        {title:'Business Tax Returns', description1:'Companies, Trusts & Partnerships.', description2:'Including Reports.', description3:'Enter online or upload', price:'$275', button:'TRIAL NOW',id:1},
-        {title:'BAS & IAS Online', description1:'Fast online Business Activity Statement, IAS & \nRevisions.', description2:'Simple BAS $55.', description3:'Enter online or upload', price:'$55+', button:'TRIAL NOW',id:2},
-        {title:'SMSF Fund Returns', description1:'Companies, Trusts & Partnerships.', description2:'Including Reports.', description3:'Upload or get a quote', price:'$550+', button:'TRIAL NOW',id:3},
-        {title:'Get a Quote', description1:'Companies, Trusts & Partnerships.', description2:'Including Reports.', description3:'Enter online or upload', price:'free', button:'QUOTES',id:4},
-        {title:'New Entities', description1:'Overnight setup including all tax registrations.', price:'poa', button:'SEE FORM',id:5},
-        {title:'Appoint Us', description1:'Appoint us Tax or ASIC Agents or update details.', price:'poa', button:'SEE FORM',id:6},
-        {title:'ATO Tasks', description1:'Extensions, Remissions, Payment Plans.', price:'poa', button:'SEE FORM',id:7},
-        {title:'Advice', description1:'Technical advice or work by experts.', price:'poa', button:'ADVICE',id:8}
+        {name:'Business Tax Returns', features: ["Companies, Trusts & Partnerships", "Including Reports", "Enter online or upload"], price:'$275', button:'TRIAL NOW',id:1,type:1,},
+        {name:'BAS & IAS Online', features: ["Fast online Business Activity Statement, IAS & \nRevisions", "Simple BAS $55", "Enter online or upload"], price:'$55+', button:'TRIAL NOW',id:2,type:1,},
+        {name:'SMSF Fund Returns', features: ["Inc Financials Returns & Audits", "Simple Funds $550", "Upload or get a quote"], price:'$550+', button:'TRIAL NOW',id:3,type:1,},
+        {name:'New Entities', features: ["Overnight setup including all tax registrations"], price:'poa', button:'SEE FORM',id:5,type:1,},
+        {name:'Appoint Us', features: ["Appoint us Tax or ASIC Agents or update details"], price:'poa', button:'SEE FORM',id:6,type:1,},
+        {name:'ATO Tasks', features: ["Extensions, Remissions, Payment Plans"], price:'poa', button:'SEE FORM',id:7,type:1,},
+        {name:'Get a Quote', features: ["Quick query or need a quote?", "Send job details & data"], price:'free', button:'QUOTES',id:4,type:1,featured: true,},
+        {name:'Advice', features: ["Technical advice or work by experts"], price:'poa', button:'ADVICE',id:8,type:1,featured: true,}
     ]);
 
     const [cards2, setCards2] = useState ([
-        {title:'Individuals & Couples', description1:'Personal & couples returns.', price:'$60+', button:'TRIAL NOW',id:9},
-        {title:'Sole Traders', description1:'For Individual business or ABN income.', price:'$110', button:'TRIAL NOW',id:10},
-        {title:'Rental Tax Returns', description1:'Rental returns for Individuals or Couples.', price:'$95', button:'TRIAL NOW',id:11},
-        {title:'Tax Calcs', description1:'Tax Calculator.', description2:'fast simple tax estimates.', description3:"", price:'', button:'CALC',id:12},
-        {title:'Non-Residents', description1:'Returns for Temporary or Foreign residents.', price:'poa', button:'TRIAL NOW',id:13},
-        {title:'Student & WHM Visa', description1:'Students & Working Hol visa, Departing returns.', price:'poa', button:'TRIAL NOW',id:14},
-        {title:'Amend a Return', description1:'Amend a past lodged return for errors.', price:'poa', button:'TRIAL NOW',id:15},
-        {title:'Tax Help', description1:'Need tax help?', description2:"Send us details for a fast response", price:'', button:'HELP!',id:16}
+        {name:'Individuals & Couples', features: ["Personal & couples returns"], price:'$60+', button:'TRIAL NOW',id:9,type:2,},
+        {name:'Sole Traders', features: ["For Individual business or ABN income"], price:'$110', button:'TRIAL NOW',id:10,type:2,},
+        {name:'Rental Tax Returns', features: ["Rental returns for Individuals or Couples"], price:'$95', button:'TRIAL NOW',id:11,type:2,},
+        {name:'Non-Residents', features: ["Returns for Temporary or Foreign residents"], price:'poa', button:'TRIAL NOW',id:13,type:2,},
+        {name:'Student & WHM Visa', features: ["Students & Working Hol visa, Departing returns"], price:'poa', button:'TRIAL NOW',id:14,type:2,},
+        {name:'Amend a Return', features: ["Amend a past lodged return for errors"], price:'poa', button:'TRIAL NOW',id:15,type:2,},
+        {name:'Tax Calcs', features: ["Tax Calculator","fast simple tax estimates"], price:'FREE', button:'CALC',id:12,type:2,featured: true,},
+        {name:'Tax Help', features: ["Need tax help?","Send us details for a fast response"], price:'FREE', button:'HELP!',id:16,type:2,featured: true,}
     ]);
 
     const [taxKeys,setTaxKeys]=useState([
