@@ -59,7 +59,7 @@ const Home = () => {
 
     return (
         <>
-        <Banner1 image={parallaxImage} header="ONLINE ACCOUNTANTS & TAX AGENTS" button="CONTACT US" description={"Australia's original and most comprehensive site for online tax returns & solutions"}/>
+        {<Banner1 image={parallaxImage} header="ONLINE ACCOUNTANTS & TAX AGENTS" button="CONTACT US" description={"Australia's original and most comprehensive site for online tax returns & solutions"}/>}
         <div className="container">
             <div style={styles.homeWelcome}>
                 <h1 style={{fontSize:60}}>Welcome</h1>

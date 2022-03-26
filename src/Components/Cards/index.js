@@ -113,7 +113,7 @@ const Cards = ({cards}) => {
                 <span className="duration">{card.duration}</span>
               </PlanHeader>
               {!card.featured && <hr />}
-              <PlanFeatures>
+              <PlanFeatures style={{paddingTop:0, paddingBottom:0}}>
                 <span className="feature mainFeature">{card.mainFeature}</span>
                 {card.features.map((feature, index) => (
                   <span key={index} className="feature">

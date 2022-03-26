@@ -12,14 +12,22 @@ const styles = ({
         
     },
     banner1Header: {
-        fontSize: '30px',
+        fontSize: '40px',
     },
     banner1Description: {
         marginBottom: 20,
+        fontSize: '26px',
     },
-    button:{
+    bottomHeader:{
         marginTop:30,
-    }
+    },
+    headerButton:{
+        borderRadius:40,
+        fontSize:16,
+        padding:'10 0',
+        fontWeight:'bold',
+        color: 'white'
+    },
 });
 
 export default styles;
