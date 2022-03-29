@@ -4,7 +4,7 @@ import "./styles.css";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro";
-import { PrimaryButton as PrimaryButtonBase } from "../../Components/misc/Buttons.js";
+import { PrimaryButton as PrimaryButtonBase } from "../../components/misc/Buttons.js";
 import { ReactComponent as SvgDecoratorBlob } from "../../Assets/Images/svg-decorator-blob-6.svg";
 
 const PlansContainer = tw.div`flex justify-between flex-col lg:flex-row items-center lg:items-stretch relative`;

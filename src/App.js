@@ -2,7 +2,7 @@ import logo from "./bclogonew.png";
 import "./App.css";
 import React from "react";
 import Home from "./Screens/Home";
-import ReturnDetails from "./Components/FormComponents/ReturnDetails";
+import ReturnDetails from "./components/FormComponents/ReturnDetails";
 
 function App() {  
   return (

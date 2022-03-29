@@ -1,12 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import Cards from "../../Components/Cards/index";
+import Cards from "../../components/Cards/index";
 import parallaxImage from "../../Assets/Images/parallaxImage.jpg";
 import calendarGif from "../../Assets/Images/calendar.gif"
-import Banner1 from "../../Components/Banner1";
+import Banner1 from "../../components/Banner1";
 import styles from "./style";
-import Banner2 from "../../Components/Banner2";
-import Table from '../../Components/Table/index'
+import Banner2 from "../../components/Banner2";
+import Table from '../../components/Table/index'
 import Divider from '@mui/material/Divider';
 const Home = () => {
 
