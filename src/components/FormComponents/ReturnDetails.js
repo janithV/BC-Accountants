@@ -9,9 +9,11 @@ import Select from 'react-select'
 import './ReturnDetails.css'
 import { Checkbox } from '@mui/material';
 import {FormControlLabel} from '@mui/material';
+import { Button } from '@mui/material';
 
 function ReturnDetails () {
 
+    const [selectBtnIncome , setSelectBtnIncome] = useState(' ')
     const [yearTopic, setYearTopic] = useState(' ')
     const [returnTypeTopic, setReturnTypeTopic] = useState(' ')
     const [taxResidencyTopic, setTaxResidency] = useState(' ')
@@ -20,15 +22,25 @@ function ReturnDetails () {
     const taxResidency = [{value:"Australian Resident",label:"Australian Resident"},{value:"Foreign Resident",label:"Foreign Resident"},{value:"Temporary Work Visa",label:"Temporary Work Visa"},{value:"Working Holiday Visa",label:"Working Holiday Visa"},{value:"Overseas Student Visa",label:"Overseas Student Visa"}]
 
     const [state, setState] = React.useState({
-        checkedA: false,
-        checkedB: false,
-        checkedF: false,
-        checkedG: false,
+        incomeCheckA: false,
+        incomeCheckB: false,
+        incomeCheckC: false,
+        incomeCheckD: false,
+        incomeCheckE: false,
+        incomeCheckF: false,
+        incomeCheckG: false,
+        incomeCheckH: false,
+        incomeCheckGI: false,
       });
 
     const handleChange = (event) => {
         setState({ ...state, [event.target.name]: event.target.checked });
       };
+
+    function handleSelectBtnClick(e) {
+        console.log(e.target.id)
+        setSelectBtnIncome(e.target.id)
+    }
 
     function handleDropDownYears(e) {    
         console.log(e)
@@ -243,66 +255,171 @@ function ReturnDetails () {
             }
 
             <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>
-                
-                <form onSubmit={formik.handleSubmit}>
-                <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
-    
-                  <h1>Income</h1>
-   
-                 
+            {
+                    selectBtnIncome === "enter" ?
+
+                <>
+                <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
+
+                    <div>
+
+                        <h1>Income</h1>
+
+                    </div>
+                    <div className="selectDiv" >
+
+                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="enter" disabled>
+                            Enter
+                        </Button>
+
+                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="upload">
+                            Upload
+                        </Button>
+
+                        <input 
+                            className="displayfields"   
+                            disabled               
+                            id="totIncome"
+                            name="totIncome"
+                            type="text"
+                            placeholder="Total Income"
+                            // onChange={formik.handleChange}
+                            value={formik.values.address}
+                        />
+                    </div>
+
                 </div>
+
 
                 <Divider/>
 
-                <div>
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Wages, Salaries & Allowances" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/>
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Other Work Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Govt Allowances & Pensions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Interest" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Dividends" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Distributions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Foreign Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Super & ETP Payments" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                <Divider/> 
-                <FormControlLabel
-                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-                        label="Other income & upload info" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                  />
-                </div>
-    
-                    {/* <button type="submit">Submit</button> */}
-                    </form>
+                    <div>
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckA} onChange={handleChange} name="incomeCheckA" />}
+                            label="Wages, Salaries & Allowances" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/>
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckB} onChange={handleChange} name="incomeCheckB" />}
+                            label="Other Work Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckC} onChange={handleChange} name="incomeCheckC" />}
+                            label="Govt Allowances & Pensions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckD} onChange={handleChange} name="incomeCheckD" />}
+                            label="Interest" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckE} onChange={handleChange} name="incomeCheckE" />}
+                            label="Dividends" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckF} onChange={handleChange} name="incomeCheckF" />}
+                            label="Distributions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckG} onChange={handleChange} name="incomeCheckG" />}
+                            label="Foreign Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckH} onChange={handleChange} name="incomeCheckH" />}
+                            label="Super & ETP Payments" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    <Divider/> 
+                    <FormControlLabel
+                            control={<Checkbox checked={state.incomeCheckI} onChange={handleChange} name="incomeCheckI" />}
+                            label="Other income & upload info" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                    />
+                    </div>
+               
+                </>
+                :
+                <>
+                    {
+                        selectBtnIncome === "upload" ?
+
+                        <>
+                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
+
+                            <div>
+
+                                <h1>Income</h1>
+
+                            </div>
+                            <div className="selectDiv" >
+
+                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="enter" >
+                                    Enter
+                                </Button>
+
+                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="upload" disabled>
+                                    Upload
+                                </Button>
+
+                                <input 
+                                    className="displayfields"   
+                                    disabled               
+                                    id="totIncome"
+                                    name="totIncome"
+                                    type="text"
+                                    placeholder="Total Income"
+                                    // onChange={formik.handleChange}
+                                    value={formik.values.address}
+                                />
+                            </div>
+
+                            </div>
+
+
+                            <Divider/>
+                            <h1>Uploading Things</h1>
+                        </>
+                        :
+                        <>
+                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
+
+                                <div>
+
+                                    <h1>Income</h1>
+
+                                </div>
+                                <div className="selectDiv" >
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="enter" >
+                                        Enter
+                                    </Button>
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleSelectBtnClick} id="upload">
+                                        Upload
+                                    </Button>
+
+                                    <input 
+                                        className="displayfields"   
+                                        disabled               
+                                        id="totIncome"
+                                        name="totIncome"
+                                        type="text"
+                                        placeholder="Total Income"
+                                        // onChange={formik.handleChange}
+                                        value={formik.values.address}
+                                    />
+                                </div>
+
+                            </div>
+                        </>
+                    }
+
+                </>
+                }
+
     
                 </Container>
 

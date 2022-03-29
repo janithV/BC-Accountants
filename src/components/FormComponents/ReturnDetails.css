@@ -17,3 +17,28 @@
     border: 1px solid black;
     border-radius: 5px;
 }
+
+.displayfields{
+    margin: 5px;
+    padding: 5px;
+    width: 125px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.selectBtn{
+    /* width: 200px; */
+    margin: 5px !important;
+    padding: 5px;
+    width: 95%;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 10px !important;
+}
+
+.selectDiv{
+    display: flex;
+    justify-content: space-between !important;
+    align-items: center;
+}
