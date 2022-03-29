@@ -1,14 +1,14 @@
-import {React} from "react"
+import React from "react"
 import { useState } from "react";
 import { useFormik } from 'formik';
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Dropdown from 'react-bootstrap/Dropdown'
 import { Divider } from '@mui/material';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Select from 'react-select'
 import './ReturnDetails.css'
+import { Checkbox } from '@mui/material';
+import {FormControlLabel} from '@mui/material';
 
 function ReturnDetails () {
 
@@ -18,6 +18,17 @@ function ReturnDetails () {
     const years = [{value:"2022", label:"2022"},{value:"2021",label:"2021"},{value:"2020",label:"2020"},{value:"2019",label:"2019"},{value:"2018",label:"2018"} ]
     const returnTypes = [{value:"Standard",label:"Standard $65"},{value:"Rental",label:"Rental $95"},{value:"Business",label:"Business $110"},{value:"Business & Rental",label:"Business & Rental $145"},{value:"Working Holiday Visa",label:"Working Holiday Visa $55"},{value:"Student Discount",label:"Student Discount $55"},{value:"Return Not Necessary",label:"Return Not Necessary $25"}]
     const taxResidency = [{value:"Australian Resident",label:"Australian Resident"},{value:"Foreign Resident",label:"Foreign Resident"},{value:"Temporary Work Visa",label:"Temporary Work Visa"},{value:"Working Holiday Visa",label:"Working Holiday Visa"},{value:"Overseas Student Visa",label:"Overseas Student Visa"}]
+
+    const [state, setState] = React.useState({
+        checkedA: false,
+        checkedB: false,
+        checkedF: false,
+        checkedG: false,
+      });
+
+    const handleChange = (event) => {
+        setState({ ...state, [event.target.name]: event.target.checked });
+      };
 
     function handleDropDownYears(e) {    
         console.log(e)
@@ -230,6 +241,70 @@ function ReturnDetails () {
                 " "
 
             }
+
+            <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>
+                
+                <form onSubmit={formik.handleSubmit}>
+                <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
+    
+                  <h1>Income</h1>
+   
+                 
+                </div>
+
+                <Divider/>
+
+                <div>
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Wages, Salaries & Allowances" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/>
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Other Work Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Govt Allowances & Pensions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Interest" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Dividends" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Distributions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Foreign Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Super & ETP Payments" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                <Divider/> 
+                <FormControlLabel
+                        control={<Checkbox checked={state.checkedA} onChange={handleChange} name="checkedA" />}
+                        label="Other income & upload info" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                  />
+                </div>
+    
+                    {/* <button type="submit">Submit</button> */}
+                    </form>
+    
+                </Container>
 
         </>
     );

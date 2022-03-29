@@ -1,7 +1,7 @@
 import {React} from "react"
 import { Parallax } from "react-parallax";
 import styles from "./style";
-import { PrimaryButton as PrimaryButtonBase } from "../../components/misc/Buttons.js";
+import { PrimaryButton as PrimaryButtonBase } from "../../Components/misc/Buttons.js";
 import {Button} from 'react-bootstrap';
 
 const Banner1 = ({image, header, button, description}) => {
