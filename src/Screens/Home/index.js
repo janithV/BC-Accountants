@@ -192,7 +192,7 @@ const Home = () => {
                 The following tax rates are those that apply according to your residency status. Application of offsets and levies will also vary according to residency, age, family and other circumstances.
                 </p>
                 <div>
-                    <h4>Residents</h4>     
+                    <h4 style={styles.tableTitles}>Residents</h4>     
                     <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2'/>
                     <ul>
                         <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
@@ -200,12 +200,12 @@ const Home = () => {
                 </div>
                 <Divider variant="middle" />
                 <div>
-                    <h4>Foreign Residents</h4>     
+                    <h4 style={styles.tableTitles}>Foreign Residents</h4>     
                     <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2'/>
                 </div>
                 <Divider variant="middle" />
                 <div>
-                    <h4>Working Holiday Makers (from 1/1/17)</h4>     
+                    <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
                     <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2'/>
                 </div>
                 <Divider variant="middle" />

@@ -1,3 +1,4 @@
+import { style } from '@mui/system';
 import React from 'react';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import 'rsuite-table/dist/css/rsuite-table.css';
@@ -21,18 +22,18 @@ function taxTable({content,type,keys}) {
           {type ==='type1' && keys.map((key, index) => (
               <>
                 <Column width={type1Width[index]} colSpan={2}>
-                  <HeaderCell>{key}</HeaderCell>
+                  <HeaderCell style={{fontWeight:'bold'}}>{key}</HeaderCell>
                   <Cell dataKey={colsType2[index]} rowIndex={index} key={index}/>
                 </Column>
               </>
             ))              
             }
-            
+
             {type ==='type2' && keys.map((key, index) => (
               <>
                 <Column width={type2Width[index]} colSpan={6}>
-                  <HeaderCell>{key}</HeaderCell>
-                  <Cell dataKey={colsType2[index]} rowIndex={index} key={index}/>
+                  <HeaderCell style={{fontWeight:'bold'}}>{key}</HeaderCell>
+                  <Cell dataKey={colsType2[index]} rowIndex={index} key={index} />
                 </Column>
               </>
             ))              
