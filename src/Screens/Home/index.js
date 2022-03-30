@@ -6,7 +6,7 @@ import calendarGif from "../../Assets/Images/calendar.gif"
 import Banner1 from "../../components/Banner1";
 import styles from "./style";
 import Banner2 from "../../components/Banner2";
-import Table from '../../components/Table/index'
+import Table from "../../components/Table";
 import Divider from '@mui/material/Divider';
 const Home = () => {
 
@@ -35,7 +35,7 @@ const Home = () => {
 
     const [taxKeys,setTaxKeys]=useState([
         'Client Type','Lodging Due','Payment Due', 'Applies To'
-    ])
+    ]);
 
     const [taxDates,setTaxDates]=useState([
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
@@ -43,18 +43,33 @@ const Home = () => {
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
         {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
 
-    ])
+    ]);
 
     const [basKeys,setBasKeys]=useState([
         'BAS Type','Usual Date','Extended Date', 'Applies To'
-    ])
-
+    ]);
     const [basDueDates,setBasDueDates]=useState([
         {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
         {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
         {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
         {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'}
-    ])
+    ]);
+
+    const [payRollKeys,setpayRollKeys]=useState([
+        'Payroll Type','Due','Usual Date', 'Applies To'
+    ]);
+    const [payRollDates,setPayRollDates]=useState([
+        {basType:'Superannuation SGC',usualDate:'Quarterly',extendedDate:'28th next month',appliesTo:'Min 9.5% of gross ordinary wages'},
+        {basType:'Superannuation Addit',usualDate:'Annual',extendedDate:'30th June',appliesTo:'Additional super over SGC minimum'},
+        {basType:'Payment Summaries',usualDate:'Annual',extendedDate:'14th July',appliesTo:'Issue to employees by this date',rowspan:4},
+        {usualDate:'Annual',extendedDate:'14th August',appliesTo:'If lodging yourself or large employer'},
+        {usualDate:'Annual',extendedDate:'30th September',appliesTo:'If we preparing & lodging'},
+        {usualDate:'Annual',extendedDate:'tax return date',appliesTo:'If we lodging & all employees related'},
+        {basType:'Taxable Payments',usualDate:'Annual',extendedDate:'28th August',appliesTo:'For Building Industry contractors only'},
+        {basType:'FBT Return',usualDate:'Annual',extendedDate:'21st May',appliesTo:'or 25th June if we lodging'},
+        {basType:'Payroll Tax',usualDate:'Annual',extendedDate:'Refer your State thresholds rates and due dates'},
+        {basType:'Workers Comp',usualDate:'Annual',extendedDate:'Refer your State thresholds rates and due dates'}
+    ]);
 
 
     return (
@@ -117,7 +132,7 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} type='BAS'/>
+                <Table content ={payRollDates} keys={payRollKeys} type='PayRoll'/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
