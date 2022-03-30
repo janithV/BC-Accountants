@@ -18,9 +18,18 @@ function ReturnDetails () {
     const [yearTopic, setYearTopic] = useState(' ')
     const [returnTypeTopic, setReturnTypeTopic] = useState(' ')
     const [taxResidencyTopic, setTaxResidency] = useState(' ')
+    const [workDeductItemSelect, setWorkDeductItemSelect ] = useState(' ')
+
+
     const years = [{value:"2022", label:"2022"},{value:"2021",label:"2021"},{value:"2020",label:"2020"},{value:"2019",label:"2019"},{value:"2018",label:"2018"} ]
     const returnTypes = [{value:"Standard",label:"Standard $65"},{value:"Rental",label:"Rental $95"},{value:"Business",label:"Business $110"},{value:"Business & Rental",label:"Business & Rental $145"},{value:"Working Holiday Visa",label:"Working Holiday Visa $55"},{value:"Student Discount",label:"Student Discount $55"},{value:"Return Not Necessary",label:"Return Not Necessary $25"}]
     const taxResidency = [{value:"Australian Resident",label:"Australian Resident"},{value:"Foreign Resident",label:"Foreign Resident"},{value:"Temporary Work Visa",label:"Temporary Work Visa"},{value:"Working Holiday Visa",label:"Working Holiday Visa"},{value:"Overseas Student Visa",label:"Overseas Student Visa"}]
+
+    //work dedcution select fields
+    const workDeductItems = [{value:'vehicle', label:"Vehicle"},{value:'travel', label:"Travel"},{value:'clothing', label:"Clothing"},{value:'selfed', label:"Self-Ed"},{value:'otherwork', label:"Other Work"}]
+
+    const workDeductVehicleTypes = [{value:'carKmBasis', label:"Car Km Basis"},{value:'carLogBasis', label:"Car Logbook Basis"},{value:'commercialVehicles', label:"Comercial Vehicles"},{value:'carExpenses', label:"33% Car Expenses"},{value:'carValue', label:"12% Car Value"}]
+
 
     const [state, setState] = React.useState({
         incomeCheckA: false,
@@ -70,6 +79,12 @@ function ReturnDetails () {
         console.log(e)
         setTaxResidency(e.value)
     }
+
+    function handleworkDeductItemSelect(e) {    
+        console.log(e)
+        setWorkDeductItemSelect(e.value)
+    }
+
 
 
     const formik = useFormik({
@@ -390,12 +405,68 @@ function ReturnDetails () {
                             control={<Checkbox checked={state.deductCheckA} onChange={handleDeductCheckChange} name="deductCheckA" />}
                             label="Work Deductions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
                     />
+                    {
+                        stateDeduct.deductCheckA  ?
+
+                        <>
+                            <Divider/>
+                            <div style={{display:"flex", justifyContent:"flex-start"}}>
+                                <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductItems} placeholder="ITEM :" />
+                                {
+                                    workDeductItemSelect === 'vehicle' ?
+                                        <>
+                                            <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                        </>
+                                    :
+                                        workDeductItemSelect === 'travel' ?
+                                            <>
+                                                <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                            </>
+                                        :
+                                            workDeductItemSelect === 'clothing' ?
+                                                <>
+                                                    <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                </>
+                                            :
+                                                workDeductItemSelect === 'selfed' ?
+                                                    <>
+                                                        <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                    </>
+                                                :
+                                                    workDeductItemSelect === 'otherwork' ?
+                                                        <>
+                                                            <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                        </>
+                                                    :
+                                                        ""    
+
+                                }
+                            </div>
+                            
+                        </>
+                        :
+                        ""
+                       
+                    }
                     <Divider/>
+
                     <FormControlLabel
                             control={<Checkbox checked={state.deductCheckB} onChange={handleDeductCheckChange} name="deductCheckB" />}
                             label="Other Deductions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
                     />
+                    {
+                        stateDeduct.deductCheckB  ?
+
+                        <>
+                            <Divider/>
+                            <h3>Other Deductions Related Things</h3>
+                        </>
+                        :
+                        ""
+                       
+                    }
                     <Divider/> 
+
                     <FormControlLabel
                             control={<Checkbox checked={state.deductCheckC} onChange={handleDeductCheckChange} name="deductCheckC" />}
                             label="Upload if unsure" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
