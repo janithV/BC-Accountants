@@ -34,9 +34,9 @@ function taxTable({content,type,keys}) {
 
           {type==='BAS' && keys.map((key, index) => (
               <>
-              <Column width={BASWidth[index]} colSpan={2} key={index}>
+              <Column width={BASWidth[index]} colSpan={2}>
               <HeaderCell>{key}</HeaderCell>
-              <Cell dataKey={BAS[index]} />
+              <Cell dataKey={BAS[index]} key={index}/>
             </Column>
            </>
             ))   
@@ -44,9 +44,9 @@ function taxTable({content,type,keys}) {
 
             {type==='PayRoll' && keys.map((key, index) => (
               <>
-              <Column width={payrollWidth[index]} colSpan={2} key={index}>
+              <Column width={payrollWidth[index]} colSpan={2}>
               <HeaderCell>{key}</HeaderCell>
-              <Cell dataKey={payroll[index]} />
+              <Cell dataKey={payroll[index]} key={index}/>
             </Column>
            </>
             ))
