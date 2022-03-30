@@ -1,4 +1,4 @@
-import {React} from "react"
+import {React} from "react";
 import { Parallax } from "react-parallax";
 import styles from "./style";
 import { PrimaryButton as PrimaryButtonBase } from "../../components/misc/Buttons.js";
