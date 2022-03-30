@@ -8,7 +8,7 @@ const styles = ({
         alignItems: 'center',
         flexDirection: 'column',
         color: '#fff',
-        textAlign: 'center'
+        textAlign: 'center',
         
     },
     banner1Header: {
