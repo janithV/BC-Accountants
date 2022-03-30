@@ -8,6 +8,7 @@ import styles from "./style";
 import Banner2 from "../../components/Banner2";
 import Table from "../../components/Table";
 import Divider from '@mui/material/Divider';
+import { Button } from "react-bootstrap";
 const Home = () => {
 
     const [name, setName] = useState('MNK');
@@ -71,6 +72,44 @@ const Home = () => {
         {col1:'Workers Comp',col2:'Annual',col3:'Refer your State thresholds rates and due dates'}
     ]);
 
+    const [taxRatesKeys,setTaxRatesKeys]=useState([
+        'Tax Threshold','2020','2019','2018','2017','2016','2015'
+    ])
+
+    const [residentTaxRates,setResTaxRates]=useState([
+        {col1:'to 18200',col2:'0%',col3:'0%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
+        {col1:'to 37000',col2:'19%',col3:'19%',col4:'19%',col5:'19%',col6:'19%',col7:'19%'},
+        {col1:'to 80000',col2:'NA',col3:'NA',col4:'NA',col5:'NA',col6:'32.5%',col7:'32.5%'},
+        {col1:'to 87000',col2:'NA',col3:'NA',col4:'32.5%',col5:'32.5%',col6:'NA',col7:'NA'},
+        {col1:'to 90000',col2:'32.5%',col3:'32.5%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
+        {col1:'to 180000',col2:'37%',col3:'37%',col4:'37%',col5:'37%',col6:'37%',col7:'37%'},
+        {col1:'180000+',col2:'45%',col3:'45%',col4:'45%',col5:'47%',col6:'47%',col7:'45%'},
+        {col1:'Medicare Levy',col2:'2%',col3:'2%',col4:'2%',col5:'2%',col6:'2%',col7:'1.5%'},
+        {col1:'Medicare Levy Reduction*',col2:'0% Levy if income <22,398 increasing to 2% at 27,997'},
+        {col1:'Medicare Levy Surcharge*',col2:'1% if income >90000 to 105000, 1.25% to 140000, then 1.5%'},
+        {col1:'Low Income Offset',col2:'$445 if income under 37000 reducing to nil at 66,667 income'},
+        {col1:'Low & Middle Income Offset',col2:'$255 increasing to $1080 at 48000 & reducing to nil between 90,000 - 126000 income'},
+        {col1:'Seniors Tax Offset*',col2:'$2230 if income under 32279 reducing to nil at 50119'},
+        {col1:'SBE Tax Offset',col2:'8% up to $1000 on small business trust & partner tax'}      
+
+    ])
+
+    const[forResidentTaxRates,setForResTaxRates]=useState([
+        {col1:'to 80000',col2:'NA',col3:'NA',col4:'NA',col5:'NA',col6:'32.5%',col7:'32.5%'},
+        {col1:'to 87000',col2:'NA',col3:'NA',col4:'32.5%',col5:'32.5%',col6:'NA',col7:'NA'},
+        {col1:'to 90000',col2:'32.5%',col3:'32.5%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
+        {col1:'to 180000',col2:'37%',col3:'37%',col4:'37%',col5:'37%',col6:'37%',col7:'37%'},
+        {col1:'180000+',col2:'45%',col3:'45%',col4:'45%',col5:'45%',col6:'47%',col7:'47%'},
+    ])
+
+    const[whmTaxRates,setWhmTaxRates]=useState([
+        {col1:'to 37000',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'NA',col7:'NA'},
+        {col1:'to 87000',col2:'NA',col3:'NA',col4:'32.5%',col5:'32.5%',col6:'NA',col7:'NA'},
+        {col1:'to 90000',col2:'32.5%',col3:'32.5%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
+        {col1:'to 180000',col2:'37%',col3:'37%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
+        {col1:'180000+',col2:'45%',col3:'45%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'}
+    ])
+
 
     return (
         <>
@@ -90,7 +129,7 @@ const Home = () => {
             <Cards style={{marginTop: '30px'}} cards = {cards2} color="#d94545"/>
         </div>
         <Banner2 image={parallaxImage} header="Due Dates" />
-        <div className="container" style={{height:'100vh'}}>
+        <div className="container">
             <div> 
             <Divider variant="middle" />
                 <h1><span>
@@ -102,7 +141,7 @@ const Home = () => {
                 </p>
            
            
-            <Table content ={taxDates} keys={taxKeys} type='taxDue'/>
+            <Table content ={taxDates} keys={taxKeys} type='type1'/>
             <ul>
                 <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
                 <li>Note 2 - Substituted Accounting Periods (SAP) may also apply to approved entities</li>
@@ -117,13 +156,13 @@ const Home = () => {
                 <p>
                 Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} type='BAS'/>
+                <Table content ={basDueDates} keys={basKeys} type='type1'/>
                 <ul>
                 <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
                 <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
             </ul>
-                </div>
-                <div>
+            </div>
+            <div>
             <Divider variant="middle" />
             <h1><span>
                     <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
@@ -132,13 +171,51 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={payRollDates} keys={payRollKeys} type='PayRoll'/>
+                <Table content ={payRollDates} keys={payRollKeys} type='type1'/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
             </ul>
                 </div>
         </div>
+        <div>
+        <Banner2 image={parallaxImage} header="Tax Rates" />
+        <div className="container">
+        <div> 
+            <Divider variant="middle" />
+                <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                    </span> Personal Tax Rates
+                </h1>
+            <Divider variant="middle" />
+                <p>
+                The following tax rates are those that apply according to your residency status. Application of offsets and levies will also vary according to residency, age, family and other circumstances.
+                </p>
+                <div>
+                    <h4>Residents</h4>     
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2'/>
+                    <ul>
+                        <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
+                    </ul>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4>Foreign Residents</h4>     
+                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2'/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4>Working Holiday Makers (from 1/1/17)</h4>     
+                    <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2'/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <p>Quick tax estimator</p><Button variant="primary">Calculator</Button>
+                </div>
+        </div>
+
+    </div>
+    </div>
         
         </>
     );
