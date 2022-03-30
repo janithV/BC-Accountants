@@ -38,10 +38,10 @@ const Home = () => {
     ]);
 
     const [taxDates,setTaxDates]=useState([
-        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
-        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
-        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
-        {clientType:'Non-Taxable',lodgingDue:'5 June 20',paymentDue:'5 June 20',appliesTo:'Concession if no tax payable for 2018 & 2019'},
+        {col1:'Non-Taxable',col2:'5 June 20',col3:'5 June 20',col4:'Concession if no tax payable for 2018 & 2019'},
+        {col1:'Non-Taxable',col2:'5 June 20',col3:'5 June 20',col4:'Concession if no tax payable for 2018 & 2019'},
+        {col1:'Non-Taxable',col2:'5 June 20',col3:'5 June 20',col4:'Concession if no tax payable for 2018 & 2019'},
+        {col1:'Non-Taxable',col2:'5 June 20',col3:'5 June 20',col4:'Concession if no tax payable for 2018 & 2019'},
 
     ]);
 
@@ -49,26 +49,26 @@ const Home = () => {
         'BAS Type','Usual Date','Extended Date', 'Applies To'
     ]);
     const [basDueDates,setBasDueDates]=useState([
-        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
-        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
-        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'},
-        {basType:'BAS Quarterly',usualDate:'28th next month',extendedDate:'25th 2nd month',appliesTo:'All small business unless monthly'}
+        {col1:'BAS Quarterly',col2:'28th next month',col3:'25th 2nd month',col4:'All small business unless monthly'},
+        {col1:'BAS Quarterly',col2:'28th next month',col3:'25th 2nd month',col4:'All small business unless monthly'},
+        {col1:'BAS Quarterly',col2:'28th next month',col3:'25th 2nd month',col4:'All small business unless monthly'},
+        {col1:'BAS Quarterly',col2:'28th next month',col3:'25th 2nd month',col4:'All small business unless monthly'}
     ]);
 
     const [payRollKeys,setpayRollKeys]=useState([
         'Payroll Type','Due','Usual Date', 'Applies To'
     ]);
     const [payRollDates,setPayRollDates]=useState([
-        {basType:'Superannuation SGC',usualDate:'Quarterly',extendedDate:'28th next month',appliesTo:'Min 9.5% of gross ordinary wages'},
-        {basType:'Superannuation Addit',usualDate:'Annual',extendedDate:'30th June',appliesTo:'Additional super over SGC minimum'},
-        {basType:'Payment Summaries',usualDate:'Annual',extendedDate:'14th July',appliesTo:'Issue to employees by this date',rowspan:4},
-        {usualDate:'Annual',extendedDate:'14th August',appliesTo:'If lodging yourself or large employer'},
-        {usualDate:'Annual',extendedDate:'30th September',appliesTo:'If we preparing & lodging'},
-        {usualDate:'Annual',extendedDate:'tax return date',appliesTo:'If we lodging & all employees related'},
-        {basType:'Taxable Payments',usualDate:'Annual',extendedDate:'28th August',appliesTo:'For Building Industry contractors only'},
-        {basType:'FBT Return',usualDate:'Annual',extendedDate:'21st May',appliesTo:'or 25th June if we lodging'},
-        {basType:'Payroll Tax',usualDate:'Annual',extendedDate:'Refer your State thresholds rates and due dates'},
-        {basType:'Workers Comp',usualDate:'Annual',extendedDate:'Refer your State thresholds rates and due dates'}
+        {col1:'Superannuation SGC',col2:'Quarterly',col3:'28th next month',col4:'Min 9.5% of gross ordinary wages'},
+        {col1:'Superannuation Addit',col2:'Annual',col3:'30th June',col4:'Additional super over SGC minimum'},
+        {col1:'Payment Summaries',col2:'Annual',col3:'14th July',col4:'Issue to employees by this date',rowspan:4},
+        {col2:'Annual',col3:'14th August',col4:'If lodging yourself or large employer'},
+        {col2:'Annual',col3:'30th September',col4:'If we preparing & lodging'},
+        {col2:'Annual',col3:'tax return date',col4:'If we lodging & all employees related'},
+        {col1:'Taxable Payments',col2:'Annual',col3:'28th August',col4:'For Building Industry contractors only'},
+        {col1:'FBT Return',col2:'Annual',col3:'21st May',col4:'or 25th June if we lodging'},
+        {col1:'Payroll Tax',col2:'Annual',col3:'Refer your State thresholds rates and due dates'},
+        {col1:'Workers Comp',col2:'Annual',col3:'Refer your State thresholds rates and due dates'}
     ]);
 
 
