@@ -110,6 +110,41 @@ const Home = () => {
         {col1:'180000+',col2:'45%',col3:'45%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'}
     ])
 
+    const [bsnsTaxRatesKeys,setBsnsTaxRatesKeys]=useState([
+        'Entity type','2020','2019','2018','2017','2016','2015'
+    ])
+
+    const[companyTaxRates,setCompanyTaxRates]=useState([
+        {col1:"Small business company",col2:"27.5%",col3:"27.5%",col4:"27.5%",col5:"27.5%",col6:"28.5%",col7:"30%"},
+        {col1:"Base Rate companies",col2:"27.5%",col3:"27.5%",col4:"27.5%",col5:"30%",col6:"30%",col7:"30%"},
+        {col1:"Other companies",col2:"30%",col3:"30%",col4:"30%",col5:"30%",col6:"30%",col7:"30%"},
+        {col1:"Non-profit companies",col2:"Nil tax if taxable income under $416, otherwise above rates apply"}
+    ])
+
+    const[trustTaxRates,setTrustTaxRates]=useState([
+        {col1:"Distributes income",col2:'Taxable to beneficiaries personally on share of income'},
+        {col1:'Undistributed or Non-Resident',col2:'45%',col3:'45%',col4:'45%',col5:'49%',col6:'49%',col7:'49%'},
+        {col1:'SBE Beneficiary Offset',col2:'8%',col3:'8%',col4:'8%',col5:'8%',col6:'5%'}
+    ])
+
+    const[partnerTaxRates,setPartnerTaxrates]=useState([
+        {col1:'Distributed Income',col2:'Taxable to partners personally on share of income'},
+        {col1:'SBE Partner Offset',col2:'8%',col3:'8%',col4:'8%',col5:'8%',col6:'5%'}
+    ])
+
+    const[smsfTaxRates,setSmsfTaxRates]=useState([
+        {col1:'Accumulation account',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'15%',col7:'15%'},
+        {col1:'Transition To Retirement',col2:'15%',col3:'15%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
+        {col1:'Pension account',col2:'0%',col3:'0%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
+        {col1:'Div 293 Contributions Surcharge',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'15%',col7:'15%'}
+    ])
+
+    const [sbeTurnover,setSbeTurnover]=useState([
+        {col1:'SBE & Base Rate',col2:'$50m',col3:'$25m',col4:'$25m',col5:'$10m',col6:'$2m',col7:'$2m'},
+        {col1:'SBE CGT concessions',col2:'$2m',col3:'$2m',col4:'$2m',col5:'$2m',col6:'$2m',col7:'$2m'},
+        {col1:'SBE Tax Offset',col2:'$5m',col3:'$5m',col4:'$5m',col5:'$5m',col6:'$2m',col7:'$2m'}
+    ])
+
 
     return (
         <>
@@ -210,7 +245,27 @@ const Home = () => {
                 </div>
                 <Divider variant="middle" />
                 <div>
-                    <p>Quick tax estimator</p><Button variant="primary">Calculator</Button>
+                    <span>Quick tax estimator  <Button variant="primary">Calculator</Button></span>
+                </div>
+                <Divider variant="middle" />
+
+        </div>
+        <div>
+        <Divider variant="middle" />
+                <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                    </span>  Business Tax Rates
+                </h1>
+            <Divider variant="middle" />
+                <p>
+                The table below shows the latest Small business entity (SBE) & Company tax rates from 2014 to 2020. From 2018 the reduced company tax rates also apply to "Base Rate" entities, that is those that have passive investment income rather than run a small business.
+                </p>
+                <div>
+                    <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2'/>
+                    <ul>
+                        <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
+                    </ul>
                 </div>
         </div>
 
