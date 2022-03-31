@@ -19,6 +19,7 @@ function ReturnDetails () {
     const [returnTypeTopic, setReturnTypeTopic] = useState(' ')
     const [taxResidencyTopic, setTaxResidency] = useState(' ')
     const [workDeductItemSelect, setWorkDeductItemSelect ] = useState(' ')
+    const haha = "testing"
 
 
     const years = [{value:"2022", label:"2022"},{value:"2021",label:"2021"},{value:"2020",label:"2020"},{value:"2019",label:"2019"},{value:"2018",label:"2018"} ]
@@ -34,7 +35,7 @@ function ReturnDetails () {
     const workDeductSelfedTypes = [{value:'increaseIncome', label:"Increase to Income"},{value:'improveSkills', label:"Improve Skills"},{value:'otherDirectReason', label:"Other Direct Reason"}]    
     const workDeductOtherTypes = [{value:'union', label:"Union & Professional Fees"},{value:'seminarTraining', label:"Seminars & Training"},{value:'stationeryPostage', label:"Stationery & Postage"},{value:'booksPeriodic', label:"Books & Periodicals"},{value:'telephones', label:"Telephones"},{value:'overtimeMeal', label:"Overtime & Meal Allowances"},{value:'homeOfficeExp', label:"Home Office Expenses"},{value:'comInternet', label:"Computer Internet"},{value:'toolEquip', label:"Tools & Equipments"},{value:'depriciation', label:"Depriciation"},{value:'other', label:"Other"}]
     
-    const workDeductTravelEvidenceheld = [{value:'statment', label:"Statement"},{value:'reciptInvoices', label:"Recipts/Invoices"},{value:'paymentSummary', label:"Payment Summary"},{value:'diarySchedule', label:"Diary/Schedule"},{value:'estimateATO', label:"Estimate per ATO Rules"},{value:'acceptedAward', label:"Accepted per Award"},{value:'notRequired', label:"Not Required"}]
+    const workDeductTravelClothingEvidenceheld = [{value:'statment', label:"Statement"},{value:'reciptInvoices', label:"Recipts/Invoices"},{value:'paymentSummary', label:"Payment Summary"},{value:'diarySchedule', label:"Diary/Schedule"},{value:'estimateATO', label:"Estimate per ATO Rules"},{value:'acceptedAward', label:"Accepted per Award"},{value:'notRequired', label:"Not Required"}]
 
     const [state, setState] = React.useState({
         incomeCheckA: false,
@@ -110,9 +111,10 @@ function ReturnDetails () {
 
     return( 
         <>
+            <form onSubmit={formik.handleSubmit}>
             <Container style={{padding:10, marginTop:62 , border:2, borderColor: "black" , borderStyle:"solid"}}>
                 
-            <form onSubmit={formik.handleSubmit}>
+
             <div style={{display:"flex" , justifyContent:"flex-start" , margin:10}}>
 
               <h1>Return Details</h1>
@@ -163,8 +165,7 @@ function ReturnDetails () {
 
             </Row>
             </div>
-                {/* <button type="submit">Submit</button> */}
-                </form>
+
 
             </Container>
 
@@ -235,124 +236,50 @@ function ReturnDetails () {
             }
 
             <Container style={{padding:10, marginTop:30 , border:2, borderColor: "black" , borderStyle:"solid"}}>
-            {
-                    selectBtnIncome === "enter" ?
 
-                <>
-                <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
+            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
 
-                    <div>
+                <div>
 
-                        <h1>Income</h1>
-
-                    </div>
-                    <div className="selectDiv" >
-
-                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="enter" disabled>
-                            Enter
-                        </Button>
-
-                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="upload">
-                            Upload
-                        </Button>
-
-                        <input  className="displayfields" disabled  id="totIncome" name="totIncome" type="text" placeholder="Total Income" value={formik.values.address} />
-                    </div>
+                    <h1>Income</h1>
 
                 </div>
+                {
+                    selectBtnIncome === "enter" ?
+                    <>
+                        <div className="selectDiv" >
+                            <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="enter" disabled>
+                                Enter
+                            </Button>
 
+                            <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="upload">
+                                Upload
+                            </Button>
 
-                <Divider/>
+                            <input  className="displayfields" disabled  id="totIncome" name="totIncome" type="text" placeholder="Total Income" value={formik.values.address} />
+                        </div>
+                    </>
+                    :
+                    <>
+                        {
+                            selectBtnIncome === "upload" ?
 
-                    <div>
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckA} onChange={handleIncomeCheckChange} name="incomeCheckA" />}
-                            label="Wages, Salaries & Allowances" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/>
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckB} onChange={handleIncomeCheckChange} name="incomeCheckB" />}
-                            label="Other Work Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckC} onChange={handleIncomeCheckChange} name="incomeCheckC" />}
-                            label="Govt Allowances & Pensions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckD} onChange={handleIncomeCheckChange} name="incomeCheckD" />}
-                            label="Interest" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckE} onChange={handleIncomeCheckChange} name="incomeCheckE" />}
-                            label="Dividends" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckF} onChange={handleIncomeCheckChange} name="incomeCheckF" />}
-                            label="Distributions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckG} onChange={handleIncomeCheckChange} name="incomeCheckG" />}
-                            label="Foreign Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckH} onChange={handleIncomeCheckChange} name="incomeCheckH" />}
-                            label="Super & ETP Payments" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    <Divider/> 
-                    <FormControlLabel
-                            control={<Checkbox checked={state.incomeCheckI} onChange={handleIncomeCheckChange} name="incomeCheckI" />}
-                            label="Other income & upload info" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
-                    />
-                    </div>
-               
-                </>
-                :
-                <>
-                    {
-                        selectBtnIncome === "upload" ?
+                            <>
+                                <div className="selectDiv" >
 
-                        <>
-                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="enter" >
+                                        Enter
+                                    </Button>
 
-                            <div>
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="upload" disabled>
+                                        Upload
+                                    </Button>
 
-                                <h1>Income</h1>
-
-                            </div>
-                            <div className="selectDiv" >
-
-                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="enter" >
-                                    Enter
-                                </Button>
-
-                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="upload" disabled>
-                                    Upload
-                                </Button>
-
-                                <input  className="displayfields"  disabled id="totIncome" name="totIncome" type="text" placeholder="Total Income" value={formik.values.address}/>
-                            </div>
-
-                            </div>
-
-
-                            <Divider/>
-                            <h1>Uploading Things</h1>
-                        </>
-                        :
-                        <>
-                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
-
-                                <div>
-
-                                    <h1>Income</h1>
-
+                                    <input  className="displayfields"  disabled id="totIncome" name="totIncome" type="text" placeholder="Total Income" value={formik.values.address}/>
                                 </div>
+                            </>
+                            :
+                            <>
                                 <div className="selectDiv" >
 
                                     <Button variant="contained" color="primary" className="selectBtn" onClick={handleIncomeSelectBtnClick} id="enter" >
@@ -364,23 +291,91 @@ function ReturnDetails () {
                                     </Button>
 
                                     <input   className="displayfields"  disabled  id="totIncome"  name="totIncome"  type="text"  placeholder="Total Income"  value={formik.values.address} />
+                                
                                 </div>
+                            </>
+                        }
+                    </>
+                }
 
-                            </div>
+
+                </div>  
+
+            {
+                    selectBtnIncome === "enter" ?
+
+                <>
+
+                    <Divider/>
+
+                    <div>
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckA} onChange={handleIncomeCheckChange} name="incomeCheckA" />}
+                                label="Wages, Salaries & Allowances" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/>
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckB} onChange={handleIncomeCheckChange} name="incomeCheckB" />}
+                                label="Other Work Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckC} onChange={handleIncomeCheckChange} name="incomeCheckC" />}
+                                label="Govt Allowances & Pensions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckD} onChange={handleIncomeCheckChange} name="incomeCheckD" />}
+                                label="Interest" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckE} onChange={handleIncomeCheckChange} name="incomeCheckE" />}
+                                label="Dividends" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckF} onChange={handleIncomeCheckChange} name="incomeCheckF" />}
+                                label="Distributions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckG} onChange={handleIncomeCheckChange} name="incomeCheckG" />}
+                                label="Foreign Income" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckH} onChange={handleIncomeCheckChange} name="incomeCheckH" />}
+                                label="Super & ETP Payments" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                        <Divider/> 
+                        <FormControlLabel
+                                control={<Checkbox checked={state.incomeCheckI} onChange={handleIncomeCheckChange} name="incomeCheckI" />}
+                                label="Other income & upload info" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
+                        />
+                    </div>
+               
+                </>
+                :
+                <>
+                    {
+                        selectBtnIncome === "upload" ?
+
+                        <>
+                            <Divider/>
+                            <h1>Uploading Things</h1>
                         </>
+                        :
+                        ""
                     }
 
                 </>
                 }
 
-    
                 </Container>
 
                 <Container style={{padding:10, marginTop:30 , border:2, borderColor: "black" , borderStyle:"solid"}}>
-                {
-                    selectBtnDeduction === "enter" ?
 
-                <>
                 <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
 
                     <div>
@@ -388,21 +383,66 @@ function ReturnDetails () {
                         <h1>Deductions</h1>
 
                     </div>
-                    <div className="selectDiv" >
 
-                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" disabled>
-                            Enter
-                        </Button>
+                    {
+                        selectBtnDeduction === "enter" ?
+                        <>
+                            <div className="selectDiv" >
+                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" disabled>
+                                   Enter
+                                </Button>
 
-                        <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload">
-                            Upload
-                        </Button>
+                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload">
+                                    Upload
+                                </Button>
 
-                        <input  className="displayfields" disabled  id="totDeduct"  name="totDeduct"  type="text"  placeholder="Total Deductions"  value={formik.values.address} />
-                    </div>
+                                <input  className="displayfields" disabled  id="totDeduct"  name="totDeduct"  type="text"  placeholder="Total Deductions"  value={formik.values.address} />
+                            </div>
+                        </>
+                        :
+                        <>
+                            {
+                                selectBtnDeduction === "upload" ?
+
+                                <>
+                                    <div className="selectDiv" >
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" >
+                                        Enter
+                                    </Button>
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload" disabled>
+                                        Upload
+                                    </Button>
+
+                                    <input className="displayfields" disabled  id="totDeduct"  name="totDeduct"  type="text"  placeholder="Total Deductions"  value={formik.values.address} />
+                                    </div>
+                                </>
+                                :
+                                <>
+                                    <div className="selectDiv" >
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" >
+                                        Enter
+                                    </Button>
+
+                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload">
+                                        Upload
+                                    </Button>
+
+                                    <input className="displayfields" disabled id="totDeduct" name="totDeduct" type="text" placeholder="Total Deductions" value={formik.values.address} />
+                                    </div>
+                                </>
+                            }
+                        </>
+                    }
 
                 </div>
 
+                {
+                    selectBtnDeduction === "enter" ?
+
+                <>
 
                 <Divider/>
 
@@ -411,11 +451,13 @@ function ReturnDetails () {
                             control={<Checkbox checked={state.deductCheckA} onChange={handleDeductCheckChange} name="deductCheckA" />}
                             label="Work Deductions" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
                     />
+
                     {
                         stateDeduct.deductCheckA  ?
 
                         <>
                             <Divider/>
+
                             <Row>
                                 <Col lg={2} md={3}>
                                 <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductItems} placeholder="ITEM :" />
@@ -453,6 +495,49 @@ function ReturnDetails () {
                                 }
                                 </Col>
                                 {
+                                    workDeductItemSelect === 'vehicle' ?
+                                    <>
+                                        <Col lg={2} md={3}>
+                                        <Button variant="contained" color="primary" className="vieweditBtn" onClick={abcd} id="view" >
+                                            View or Edit
+                                        </Button>
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="totCost" name="totCost" type="textarea" placeholder="Total Cost" onChange={formik.handleChange} value={formik.values.workDeductTravelDescription} disabled />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workuse" name="workuse" type="textarea" placeholder="% Work Use" onChange={formik.handleChange} value={formik.values.workuse}  disabled />                               
+                                        </Col>
+                                        {/* <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductVehicleDeduction" name="workDeductVehicleDeduction" type="textarea" placeholder="Car Deduction" onChange={formik.handleChange} value={formik.values.workDeductVehicleDeduction}  disabled />
+                                        </Col> */}
+                                    </>
+                                    :
+                                    ""
+                                }
+                                {
+                                    workDeductItemSelect === 'selfed' ?
+                                    <>
+                                        <Col lg={2} md={3}>
+                                        <Button variant="contained" color="primary" className="vieweditBtn" onClick={abcd} id="view" >
+                                            View or Edit
+                                        </Button>
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="totCost" name="totCost" type="textarea" placeholder="Total Cost" onChange={formik.handleChange} value={formik.values.workDeductTravelDescription} disabled />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workuse" name="workuse" type="textarea" placeholder="% Work Use" onChange={formik.handleChange} value={formik.values.workuse}  disabled />                               
+                                        </Col>
+                                        {/* <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductSelfedDeduction" name="workDeductSelfedDeduction" type="textarea" placeholder="Self-ed Deduction" onChange={formik.handleChange} value={formik.values.workDeductSelfedDeduction}  disabled />
+                                        </Col> */}
+                                    </>
+                                    :
+                                    ""
+                                }
+
+                                {
                                     workDeductItemSelect === 'travel' ?
                                     <>
                                         <Col lg={2} md={3}>
@@ -462,16 +547,85 @@ function ReturnDetails () {
                                             <input  className="deductfields" id="workDeductTravelPurpose" name="workDeductTravelPurpose" type="textarea" placeholder="Purpose" onChange={formik.handleChange} value={formik.values.workDeductTravelPurpose}  />                               
                                         </Col>
                                         <Col lg={2} md={3}>
-                                            <Select className="select" onChange={abcd} options={workDeductTravelEvidenceheld} placeholder="Evidence Held :" />
+                                            <Select className="select" onChange={abcd} options={workDeductTravelClothingEvidenceheld} placeholder="Evidence Held :" />
                                         </Col>
-                                        <Col lg={2} md={3}>
+                                        {/* <Col lg={2} md={3}>
                                             <input  className="deductfields" id="workDeductTravelDeduction" name="workDeductTravelDeduction" type="textarea" placeholder="Travel Deduction" onChange={formik.handleChange} value={formik.values.workDeductTravelDeduction}  />
-                                        </Col>
+                                        </Col> */}
                                     </>
                                     :
                                     ""
                                 }
+                                {
+                                    workDeductItemSelect === 'otherwork' ?
+                                    <>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductOtherDescription" name="workDeductOtherDescription" type="textarea" placeholder="Description" onChange={formik.handleChange} value={formik.values.workDeductOtherDescription}  />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductOtherPurpose" name="workDeductOtherPurpose" type="textarea" placeholder="Purpose" onChange={formik.handleChange} value={formik.values.workDeductOtherPurpose}  />                               
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <Select className="select" onChange={abcd} options={workDeductTravelClothingEvidenceheld} placeholder="Evidence Held :" />
+                                        </Col>
+                                        {/* <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductOtherDeduction" name="workDeductOtherDeduction" type="textarea" placeholder="Other Deduction" onChange={formik.handleChange} value={formik.values.workDeductOtherDeduction}  />
+                                        </Col> */}
+                                    </>
+                                    :
+                                    ""
+                                }
+                                {
+                                    workDeductItemSelect === 'clothing' ?
+                                    <>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductClothingDescription" name="workDeductClothingDescription" type="textarea" placeholder="Description" onChange={formik.handleChange} value={formik.values.workDeductClothingDescription}  />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductClothingPurpose" name="workDeductClothingPurpose" type="textarea" placeholder="Purpose" onChange={formik.handleChange} value={formik.values.workDeductClothingPurpose}  />                               
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <Select className="select" onChange={abcd} options={workDeductTravelClothingEvidenceheld} placeholder="Evidence Held :" />
+                                        </Col>
+                                        {/* <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductClothingDeduction" name="workDeductClothingDeduction" type="textarea" placeholder="Clothing Deduction" onChange={formik.handleChange} value={formik.values.workDeductClothingDeduction}  />
+                                        </Col> */}
+                                    </>
+                                    :
+                                    ""
+                                }
+                                <Col lg={2} md={3}>
+                                {
+                                    workDeductItemSelect === 'vehicle' ?
+                                        <>
+                                            <input  className="deductfields" id="workDeductVehicleDeduction" name="workDeductVehicleDeduction" type="textarea" placeholder="Car Deduction" onChange={formik.handleChange} value={formik.values.workDeductVehicleDeduction}  disabled />
+                                        </>
+                                    :
+                                        workDeductItemSelect === 'travel' ?
+                                            <>
+                                                <input  className="deductfields" id="workDeductTravelDeduction" name="workDeductTravelDeduction" type="textarea" placeholder="Travel Deduction" onChange={formik.handleChange} value={formik.values.workDeductTravelDeduction}  />
+                                            </>
+                                        :
+                                            workDeductItemSelect === 'clothing' ?
+                                                <>
+                                                    <input  className="deductfields" id="workDeductClothingDeduction" name="workDeductClothingDeduction" type="textarea" placeholder="Clothing Deduction" onChange={formik.handleChange} value={formik.values.workDeductClothingDeduction}  />
+                                                </>
+                                            :
+                                                workDeductItemSelect === 'selfed' ?
+                                                    <>
+                                                        <input  className="deductfields" id="workDeductSelfedDeduction" name="workDeductSelfedDeduction" type="textarea" placeholder="Self-ed Deduction" onChange={formik.handleChange} value={formik.values.workDeductSelfedDeduction}  disabled />
+                                                    </>
+                                                :
+                                                    workDeductItemSelect === 'otherwork' ?
+                                                        <>
+                                                            <input  className="deductfields" id="workDeductOtherDeduction" name="workDeductOtherDeduction" type="textarea" placeholder="Other Deduction" onChange={formik.handleChange} value={formik.values.workDeductOtherDeduction}  />
+                                                        </>
+                                                    :
+                                                        ""    
 
+                                }
+                                </Col>
+                            
                             </Row>
                             
                         </>
@@ -503,6 +657,7 @@ function ReturnDetails () {
                             label="Upload if unsure" sx={{ '& .MuiSvgIcon-root': { fontSize: 35 } }}
                     />
                     <Divider/> 
+
                     </div>
                
                 </>
@@ -512,56 +667,11 @@ function ReturnDetails () {
                         selectBtnDeduction === "upload" ?
 
                         <>
-                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
-
-                            <div>
-
-                                <h1>Deductions</h1>
-
-                            </div>
-                            <div className="selectDiv" >
-
-                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" >
-                                    Enter
-                                </Button>
-
-                                <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload" disabled>
-                                    Upload
-                                </Button>
-
-                                <input className="displayfields" disabled  id="totDeduct"  name="totDeduct"  type="text"  placeholder="Total Deductions"  value={formik.values.address} />
-                            </div>
-
-                            </div>
-
-
                             <Divider/>
                             <h1>Uploading Things</h1>
                         </>
                         :
-                        <>
-                            <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
-
-                                <div>
-
-                                    <h1>Deductions</h1>
-
-                                </div>
-                                <div className="selectDiv" >
-
-                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="enter" >
-                                        Enter
-                                    </Button>
-
-                                    <Button variant="contained" color="primary" className="selectBtn" onClick={handleDeductionsSelectBtnClick} id="upload">
-                                        Upload
-                                    </Button>
-
-                                    <input className="displayfields" disabled id="totDeduct" name="totDeduct" type="text" placeholder="Total Deductions" value={formik.values.address} />
-                                </div>
-
-                            </div>
-                        </>
+                        ""
                     }
 
                 </>
@@ -569,7 +679,8 @@ function ReturnDetails () {
 
     
                 </Container>
-
+                <button type="submit">Submit</button>
+                </form>
         </>
     );
 }
