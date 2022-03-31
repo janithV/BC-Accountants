@@ -74,7 +74,7 @@ const Home = () => {
 
     const [taxRatesKeys,setTaxRatesKeys]=useState([
         'Tax Threshold','2020','2019','2018','2017','2016','2015'
-    ])
+    ]);
 
     const [residentTaxRates,setResTaxRates]=useState([
         {col1:'to 18200',col2:'0%',col3:'0%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
@@ -92,7 +92,7 @@ const Home = () => {
         {col1:'Seniors Tax Offset*',col2:'$2230 if income under 32279 reducing to nil at 50119'},
         {col1:'SBE Tax Offset',col2:'8% up to $1000 on small business trust & partner tax'}      
 
-    ])
+    ]);
 
     const[forResidentTaxRates,setForResTaxRates]=useState([
         {col1:'to 80000',col2:'NA',col3:'NA',col4:'NA',col5:'NA',col6:'32.5%',col7:'32.5%'},
@@ -100,7 +100,7 @@ const Home = () => {
         {col1:'to 90000',col2:'32.5%',col3:'32.5%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
         {col1:'to 180000',col2:'37%',col3:'37%',col4:'37%',col5:'37%',col6:'37%',col7:'37%'},
         {col1:'180000+',col2:'45%',col3:'45%',col4:'45%',col5:'45%',col6:'47%',col7:'47%'},
-    ])
+    ]);
 
     const[whmTaxRates,setWhmTaxRates]=useState([
         {col1:'to 37000',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'NA',col7:'NA'},
@@ -108,7 +108,10 @@ const Home = () => {
         {col1:'to 90000',col2:'32.5%',col3:'32.5%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
         {col1:'to 180000',col2:'37%',col3:'37%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'},
         {col1:'180000+',col2:'45%',col3:'45%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'}
-    ])
+    ]);
+
+    const [type1Width,setType1Width] = useState([180,150,150,400]);
+    const [type2Width,setType2Width] = useState([250,110,110,110,110,110,110]);
 
 
     return (
@@ -141,7 +144,8 @@ const Home = () => {
                 </p>
            
            
-            <Table content ={taxDates} keys={taxKeys} type='type1'/>
+            <Table content ={taxDates} keys={taxKeys} type='type1' tableWidth={type1Width}/>
+
             <ul>
                 <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
                 <li>Note 2 - Substituted Accounting Periods (SAP) may also apply to approved entities</li>
@@ -156,7 +160,7 @@ const Home = () => {
                 <p>
                 Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} type='type1'/>
+                <Table content ={basDueDates} keys={basKeys} type='type1' tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
                 <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
@@ -171,7 +175,7 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={payRollDates} keys={payRollKeys} type='type1'/>
+                <Table content ={payRollDates} keys={payRollKeys} type='type1' tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
@@ -193,7 +197,7 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Residents</h4>     
-                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2'/>
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
                     <ul>
                         <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
                     </ul>
@@ -201,12 +205,12 @@ const Home = () => {
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Foreign Residents</h4>     
-                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2'/>
+                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
-                    <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2'/>
+                    <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
