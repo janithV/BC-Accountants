@@ -3,7 +3,7 @@ import React from 'react';
 import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 import 'rsuite-table/dist/css/rsuite-table.css';
 
-function taxTable({content,type,keys,tableWidth}) {
+function taxTable({content,keys,tableWidth}) {
 
   const colsType2 = ['col1','col2','col3','col4','col5','col6','col7'];
 

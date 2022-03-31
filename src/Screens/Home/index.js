@@ -110,8 +110,43 @@ const Home = () => {
         {col1:'180000+',col2:'45%',col3:'45%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'}
     ]);
 
-    const [type1Width,setType1Width] = useState([180,150,150,400]);
-    const [type2Width,setType2Width] = useState([250,110,110,110,110,110,110]);
+    const type1Width = [180,150,150,400];
+    const type2Width = [250,110,110,110,110,110,110];
+
+    const [bsnsTaxRatesKeys,setBsnsTaxRatesKeys]=useState([
+        'Entity type','2020','2019','2018','2017','2016','2015'
+    ])
+
+    const[companyTaxRates,setCompanyTaxRates]=useState([
+        {col1:"Small business company",col2:"27.5%",col3:"27.5%",col4:"27.5%",col5:"27.5%",col6:"28.5%",col7:"30%"},
+        {col1:"Base Rate companies",col2:"27.5%",col3:"27.5%",col4:"27.5%",col5:"30%",col6:"30%",col7:"30%"},
+        {col1:"Other companies",col2:"30%",col3:"30%",col4:"30%",col5:"30%",col6:"30%",col7:"30%"},
+        {col1:"Non-profit companies",col2:"Nil tax if taxable income under $416, otherwise above rates apply"}
+    ])
+
+    const[trustTaxRates,setTrustTaxRates]=useState([
+        {col1:"Distributes income",col2:'Taxable to beneficiaries personally on share of income'},
+        {col1:'Undistributed or Non-Resident',col2:'45%',col3:'45%',col4:'45%',col5:'49%',col6:'49%',col7:'49%'},
+        {col1:'SBE Beneficiary Offset',col2:'8%',col3:'8%',col4:'8%',col5:'8%',col6:'5%'}
+    ])
+
+    const[partnerTaxRates,setPartnerTaxrates]=useState([
+        {col1:'Distributed Income',col2:'Taxable to partners personally on share of income'},
+        {col1:'SBE Partner Offset',col2:'8%',col3:'8%',col4:'8%',col5:'8%',col6:'5%'}
+    ])
+
+    const[smsfTaxRates,setSmsfTaxRates]=useState([
+        {col1:'Accumulation account',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'15%',col7:'15%'},
+        {col1:'Transition To Retirement',col2:'15%',col3:'15%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
+        {col1:'Pension account',col2:'0%',col3:'0%',col4:'0%',col5:'0%',col6:'0%',col7:'0%'},
+        {col1:'Div 293 Contributions Surcharge',col2:'15%',col3:'15%',col4:'15%',col5:'15%',col6:'15%',col7:'15%'}
+    ])
+
+    const [sbeTurnover,setSbeTurnover]=useState([
+        {col1:'SBE & Base Rate',col2:'$50m',col3:'$25m',col4:'$25m',col5:'$10m',col6:'$2m',col7:'$2m'},
+        {col1:'SBE CGT concessions',col2:'$2m',col3:'$2m',col4:'$2m',col5:'$2m',col6:'$2m',col7:'$2m'},
+        {col1:'SBE Tax Offset',col2:'$5m',col3:'$5m',col4:'$5m',col5:'$5m',col6:'$2m',col7:'$2m'}
+    ])
 
 
     return (
@@ -144,7 +179,7 @@ const Home = () => {
                 </p>
            
            
-            <Table content ={taxDates} keys={taxKeys} type='type1' tableWidth={type1Width}/>
+            <Table content ={taxDates} keys={taxKeys} tableWidth={type1Width}/>
 
             <ul>
                 <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
@@ -160,7 +195,7 @@ const Home = () => {
                 <p>
                 Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} type='type1' tableWidth={type1Width}/>
+                <Table content ={basDueDates} keys={basKeys} tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
                 <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
@@ -175,7 +210,7 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={payRollDates} keys={payRollKeys} type='type1' tableWidth={type1Width}/>
+                <Table content ={payRollDates} keys={payRollKeys} tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
@@ -197,7 +232,7 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Residents</h4>     
-                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                     <ul>
                         <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
                     </ul>
@@ -205,20 +240,64 @@ const Home = () => {
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Foreign Residents</h4>     
-                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
-                    <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={whmTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
-                    <p>Quick tax estimator</p><Button variant="primary">Calculator</Button>
+                    <span>Quick tax estimator  <Button variant="primary">Calculator</Button></span>
                 </div>
-        </div>
+                <Divider variant="middle" />
 
-    </div>
+        </div>
+        <div>
+        <Divider variant="middle" />
+                <h1><span>
+                    <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
+                    </span>  Business Tax Rates
+                </h1>
+            <Divider variant="middle" />
+                <p>
+                The table below shows the latest Small business entity (SBE) & Company tax rates from 2014 to 2020. From 2018 the reduced company tax rates also apply to "Base Rate" entities, that is those that have passive investment income rather than run a small business.
+                </p>
+                <div>
+                    <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
+                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>Trust Tax Rates</h4>     
+                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>Partnership Tax Rates</h4>     
+                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>SMSF Tax Rates</h4>     
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>SBE Turnover Thresholds</h4>     
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                </div>
+                <div>
+                    <span>Company tax calculator  <Button variant="primary">Calculator</Button></span>
+                </div>
+            </div>
+
+        </div>
+        <Banner2 image={parallaxImage} header="Features" />
+        <div className="container">
+
+        </div>
     </div>
         
         </>
