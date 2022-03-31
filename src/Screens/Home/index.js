@@ -110,8 +110,8 @@ const Home = () => {
         {col1:'180000+',col2:'45%',col3:'45%',col4:'NA',col5:'NA',col6:'NA',col7:'NA'}
     ]);
 
-    const [type1Width,setType1Width] = useState([180,150,150,400]);
-    const [type2Width,setType2Width] = useState([250,110,110,110,110,110,110]);
+    const type1Width = [180,150,150,400];
+    const type2Width = [250,110,110,110,110,110,110];
 
     const [bsnsTaxRatesKeys,setBsnsTaxRatesKeys]=useState([
         'Entity type','2020','2019','2018','2017','2016','2015'
