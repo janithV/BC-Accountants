@@ -266,14 +266,38 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
-                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2'/>
-                    <ul>
-                        <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
-                    </ul>
+                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
                 </div>
-        </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>Trust Tax Rates</h4>     
+                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>Partnership Tax Rates</h4>     
+                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>SMSF Tax Rates</h4>     
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                </div>
+                <Divider variant="middle" />
+                <div>
+                    <h4 style={styles.tableTitles}>SBE Turnover Thresholds</h4>     
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                </div>
+                <div>
+                    <span>Company tax calculator  <Button variant="primary">Calculator</Button></span>
+                </div>
+            </div>
 
-    </div>
+        </div>
+        <Banner2 image={parallaxImage} header="Features" />
+        <div className="container">
+
+        </div>
     </div>
         
         </>
