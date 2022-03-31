@@ -179,7 +179,7 @@ const Home = () => {
                 </p>
            
            
-            <Table content ={taxDates} keys={taxKeys} type='type1' tableWidth={type1Width}/>
+            <Table content ={taxDates} keys={taxKeys} tableWidth={type1Width}/>
 
             <ul>
                 <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
@@ -195,7 +195,7 @@ const Home = () => {
                 <p>
                 Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} type='type1' tableWidth={type1Width}/>
+                <Table content ={basDueDates} keys={basKeys} tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
                 <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
@@ -210,7 +210,7 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={payRollDates} keys={payRollKeys} type='type1' tableWidth={type1Width}/>
+                <Table content ={payRollDates} keys={payRollKeys} tableWidth={type1Width}/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
@@ -232,7 +232,7 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Residents</h4>     
-                    <Table content ={residentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                     <ul>
                         <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
                     </ul>
@@ -240,12 +240,12 @@ const Home = () => {
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Foreign Residents</h4>     
-                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
-                    <Table content ={whmTaxRates} keys={taxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={whmTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
@@ -266,27 +266,27 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
-                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Trust Tax Rates</h4>     
-                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Partnership Tax Rates</h4>     
-                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>SMSF Tax Rates</h4>     
-                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>SBE Turnover Thresholds</h4>     
-                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} type='type2' tableWidth={type2Width}/>
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
                 <div>
                     <span>Company tax calculator  <Button variant="primary">Calculator</Button></span>
