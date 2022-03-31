@@ -14,7 +14,7 @@ import { Button } from '@mui/material';
 function ReturnDetails () {
 
     const [selectBtnIncome , setSelectBtnIncome] = useState(' ')
-    const [selectDeductionBtnIncome , setSelectDeductionBtnIncome] = useState(' ')
+    const [selectBtnDeduction , setSelectBtnDeduction] = useState(' ')
     const [yearTopic, setYearTopic] = useState(' ')
     const [returnTypeTopic, setReturnTypeTopic] = useState(' ')
     const [taxResidencyTopic, setTaxResidency] = useState(' ')
@@ -29,7 +29,12 @@ function ReturnDetails () {
     const workDeductItems = [{value:'vehicle', label:"Vehicle"},{value:'travel', label:"Travel"},{value:'clothing', label:"Clothing"},{value:'selfed', label:"Self-Ed"},{value:'otherwork', label:"Other Work"}]
 
     const workDeductVehicleTypes = [{value:'carKmBasis', label:"Car Km Basis"},{value:'carLogBasis', label:"Car Logbook Basis"},{value:'commercialVehicles', label:"Comercial Vehicles"},{value:'carExpenses', label:"33% Car Expenses"},{value:'carValue', label:"12% Car Value"}]
-
+    const workDeductTravelTypes = [{value:'domtravel', label:"Domestic Travel"},{value:'overtravel', label:"Overseas Travel"},{value:'carHireCosts', label:"Car Hire & Costs"},{value:'tollsParking', label:"Tolls & Parking"},{value:'otherTravel', label:"Other Travel"}]
+    const workDeductClothingTypes = [{value:'compulUniform', label:"Compulsory Uniform"},{value:'occupCloth', label:"Occupation Clothing"},{value:'protectiveClean', label:"Protective Clothing"},{value:'dryCleaning', label:"Dry Cleaning"},{value:'laundryAbove', label:"Laundry of Above"}]
+    const workDeductSelfedTypes = [{value:'increaseIncome', label:"Increase to Income"},{value:'improveSkills', label:"Improve Skills"},{value:'otherDirectReason', label:"Other Direct Reason"}]    
+    const workDeductOtherTypes = [{value:'union', label:"Union & Professional Fees"},{value:'seminarTraining', label:"Seminars & Training"},{value:'stationeryPostage', label:"Stationery & Postage"},{value:'booksPeriodic', label:"Books & Periodicals"},{value:'telephones', label:"Telephones"},{value:'overtimeMeal', label:"Overtime & Meal Allowances"},{value:'homeOfficeExp', label:"Home Office Expenses"},{value:'comInternet', label:"Computer Internet"},{value:'toolEquip', label:"Tools & Equipments"},{value:'depriciation', label:"Depriciation"},{value:'other', label:"Other"}]
+    
+    const workDeductTravelEvidenceheld = [{value:'statment', label:"Statement"},{value:'reciptInvoices', label:"Recipts/Invoices"},{value:'paymentSummary', label:"Payment Summary"},{value:'diarySchedule', label:"Diary/Schedule"},{value:'estimateATO', label:"Estimate per ATO Rules"},{value:'acceptedAward', label:"Accepted per Award"},{value:'notRequired', label:"Not Required"}]
 
     const [state, setState] = React.useState({
         incomeCheckA: false,
@@ -64,7 +69,7 @@ function ReturnDetails () {
 
     function handleDeductionsSelectBtnClick(e) {
         console.log(e.target.id)
-        setSelectDeductionBtnIncome(e.target.id)
+        setSelectBtnDeduction(e.target.id)
     }
 
     function handleDropDownYears(e) {    
@@ -83,6 +88,10 @@ function ReturnDetails () {
     function handleworkDeductItemSelect(e) {    
         console.log(e)
         setWorkDeductItemSelect(e.value)
+    }
+
+    function abcd(){
+
     }
 
 
@@ -108,9 +117,9 @@ function ReturnDetails () {
 
               <h1>Return Details</h1>
 
-              <Select className="select" onChange={handleDropDownYears} options={years} placeholder="Year" />  
-              <Select className="select" onChange={handleDropDownReturnTypes} options={returnTypes} placeholder="Return Type" />  
-              <Select className="select" onChange={handleDropDownTaxResidency} options={taxResidency} placeholder="Tax Residency" />  
+              <Select className="returnSelect" onChange={handleDropDownYears} options={years} placeholder="Year" />  
+              <Select className="returnSelect" onChange={handleDropDownReturnTypes} options={returnTypes} placeholder="Return Type" />  
+              <Select className="returnSelect" onChange={handleDropDownTaxResidency} options={taxResidency} placeholder="Tax Residency" />  
              
             </div>
 
@@ -190,7 +199,6 @@ function ReturnDetails () {
                 :
 
                 " "
-
             }
 
             {
@@ -207,7 +215,6 @@ function ReturnDetails () {
                 :
 
                 " "
-
             }
 
 
@@ -225,7 +232,6 @@ function ReturnDetails () {
                 :
 
                 " "
-
             }
 
             <Container style={{padding:10, marginTop:30 , border:2, borderColor: "black" , borderStyle:"solid"}}>
@@ -372,7 +378,7 @@ function ReturnDetails () {
 
                 <Container style={{padding:10, marginTop:30 , border:2, borderColor: "black" , borderStyle:"solid"}}>
                 {
-                    selectDeductionBtnIncome === "enter" ?
+                    selectBtnDeduction === "enter" ?
 
                 <>
                 <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
@@ -410,38 +416,63 @@ function ReturnDetails () {
 
                         <>
                             <Divider/>
-                            <div style={{display:"flex", justifyContent:"flex-start"}}>
+                            <Row>
+                                <Col lg={2} md={3}>
                                 <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductItems} placeholder="ITEM :" />
+                                </Col>
+
+                                <Col lg={2} md={3}>
                                 {
                                     workDeductItemSelect === 'vehicle' ?
                                         <>
-                                            <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                            <Select className="select" onChange={abcd} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
                                         </>
                                     :
                                         workDeductItemSelect === 'travel' ?
                                             <>
-                                                <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                <Select className="select" onChange={abcd} options={workDeductTravelTypes} placeholder={ workDeductItemSelect + "Type :"} />
                                             </>
                                         :
                                             workDeductItemSelect === 'clothing' ?
                                                 <>
-                                                    <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                    <Select className="select" onChange={abcd} options={workDeductClothingTypes} placeholder={ workDeductItemSelect + "Type :"} />
                                                 </>
                                             :
                                                 workDeductItemSelect === 'selfed' ?
                                                     <>
-                                                        <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                        <Select className="select" onChange={abcd} options={workDeductSelfedTypes} placeholder={ workDeductItemSelect + "Type :"} />
                                                     </>
                                                 :
                                                     workDeductItemSelect === 'otherwork' ?
                                                         <>
-                                                            <Select className="select" onChange={handleworkDeductItemSelect} options={workDeductVehicleTypes} placeholder={ workDeductItemSelect + "Type :"} />
+                                                            <Select className="select" onChange={abcd} options={workDeductOtherTypes} placeholder={ workDeductItemSelect + "Type :"} />
                                                         </>
                                                     :
                                                         ""    
 
                                 }
-                            </div>
+                                </Col>
+                                {
+                                    workDeductItemSelect === 'travel' ?
+                                    <>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductTravelDescription" name="workDeductTravelDescription" type="textarea" placeholder="Description" onChange={formik.handleChange} value={formik.values.workDeductTravelDescription}  />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductTravelPurpose" name="workDeductTravelPurpose" type="textarea" placeholder="Purpose" onChange={formik.handleChange} value={formik.values.workDeductTravelPurpose}  />                               
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <Select className="select" onChange={abcd} options={workDeductTravelEvidenceheld} placeholder="Evidence Held :" />
+                                        </Col>
+                                        <Col lg={2} md={3}>
+                                            <input  className="deductfields" id="workDeductTravelDeduction" name="workDeductTravelDeduction" type="textarea" placeholder="Travel Deduction" onChange={formik.handleChange} value={formik.values.workDeductTravelDeduction}  />
+                                        </Col>
+                                    </>
+                                    :
+                                    ""
+                                }
+
+                            </Row>
                             
                         </>
                         :
@@ -478,7 +509,7 @@ function ReturnDetails () {
                 :
                 <>
                     {
-                        selectDeductionBtnIncome === "upload" ?
+                        selectBtnDeduction === "upload" ?
 
                         <>
                             <div style={{display:"flex" , justifyContent:"space-between", margin:10}}>
