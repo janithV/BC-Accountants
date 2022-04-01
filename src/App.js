@@ -5,12 +5,14 @@ import Home from "./Screens/Home";
 import NavBar from "./components/NavBar/navbar";
 import NotFound from './components/NotFound/notfound'
 import ReturnDetails from "./components/FormComponents/ReturnDetails";
+import AboutUs from "./Screens/AboutUs";
 
 function App() {  
   return (
     <React.Fragment>
       <NavBar/>
       <Switch>
+        <Route path='/about' component={AboutUs} />
         <Route path='/individuals' component={ReturnDetails}/>
         <Route path='/notfound' component={NotFound}/>
         <Route path='/' exact component={Home}/>

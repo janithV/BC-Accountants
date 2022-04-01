@@ -27,7 +27,7 @@ const NavBar = () => {
           <NavDropdown.Item><Link to='/individuals'>Individuals</Link></NavDropdown.Item>
         </NavDropdown>
         <Nav.Link><Link to='/'>Other Services</Link></Nav.Link>
-        <Nav.Link><Link to='/'>About Us</Link></Nav.Link>
+        <Nav.Link><Link to='/about'>About Us</Link></Nav.Link>
         <Nav.Link><Link to='/'>Pricing</Link></Nav.Link>
         <Nav.Link><Link to='/'>Resources</Link></Nav.Link>
         <Nav.Link><Link to='/'>Guides</Link></Nav.Link>
