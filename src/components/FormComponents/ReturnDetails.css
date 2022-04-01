@@ -48,6 +48,16 @@
     border-radius: 10px !important;
 }
 
+.vieweditBtn{
+    /* width: 200px; */
+    margin: 10px !important;
+    padding: 5px;
+    width: 85%;
+    height: 36px;
+    border: 1px solid black;
+    border-radius: 10px !important;
+}
+
 .selectDiv{
     display: flex;
     justify-content: space-between !important;
