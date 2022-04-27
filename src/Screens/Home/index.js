@@ -71,9 +71,9 @@ const Home = () => {
         {col1:'Superannuation SGC',col2:'Quarterly',col3:'28th next month',col4:'Min 9.5% of gross ordinary wages'},
         {col1:'Superannuation Addit',col2:'Annual',col3:'30th June',col4:'Additional super over SGC minimum'},
         {col1:'Payment Summaries',col2:'Annual',col3:'14th July',col4:'Issue to employees by this date',rowspan:4},
-        {col2:'Annual',col3:'14th August',col4:'If lodging yourself or large employer'},
-        {col2:'Annual',col3:'30th September',col4:'If we preparing & lodging'},
-        {col2:'Annual',col3:'tax return date',col4:'If we lodging & all employees related'},
+        {col1:'',col2:'Annual',col3:'14th August',col4:'If lodging yourself or large employer'},
+        {col1:'',col2:'Annual',col3:'30th September',col4:'If we preparing & lodging'},
+        {col1:'',col2:'Annual',col3:'tax return date',col4:'If we lodging & all employees related'},
         {col1:'Taxable Payments',col2:'Annual',col3:'28th August',col4:'For Building Industry contractors only'},
         {col1:'FBT Return',col2:'Annual',col3:'21st May',col4:'or 25th June if we lodging'},
         {col1:'Payroll Tax',col2:'Annual',col3:'Refer your State thresholds rates and due dates'},
@@ -174,9 +174,10 @@ const Home = () => {
             
             <Cards style={{marginTop: '30px'}} cards = {cards2} color="#d94545"/>
         </div>
-        <Banner2 image={parallaxImage1} header="Due Dates" lordicon={lordicon1} />
-        <div className="container">
-            <div> 
+        <Banner2 image={parallaxImage1} header="Due Dates" lordicon={lordicon1} fColor={'#6c63ff'}/>
+        <div style={{backgroundColor: '#7ac3f938',borderRadius: '16px', margin: '0px 28px'}}> 
+        <div className="container" style={{padding:'44px 0px'}}>
+            
             <Divider variant="middle" />
                 <h1><span>
                     <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
@@ -187,13 +188,13 @@ const Home = () => {
                 </p>
            
            
-            <Table content ={taxDates} keys={taxKeys} tableWidth={type1Width}/>
+            <Table content ={taxDates} keys={taxKeys} tableWidth={type1Width} hColor={'#6c63ff'}/>
 
             <ul>
                 <li>Note 1 - Partnerships & Trusts will generally be due on the same dates as individual partners/beneficiaries</li>
                 <li>Note 2 - Substituted Accounting Periods (SAP) may also apply to approved entities</li>
             </ul>
-            </div>
+            
             <div>
             <Divider variant="middle" />
             <h1><span>
@@ -203,7 +204,7 @@ const Home = () => {
                 <p>
                 Our extended BAS & IAS lodgement dates are shown below. We lodge electronically and send you a copy and remittance advice same day. If lodging earlier, payment dates remain the same as lodgement due dates.
                 </p>
-                <Table content ={basDueDates} keys={basKeys} tableWidth={type1Width}/>
+                <Table content ={basDueDates} keys={basKeys} tableWidth={type1Width} hColor={'#6c63ff'}/>
                 <ul>
                 <li>Note 1 - We do not change BAS delivery addresses and you should continue to receive BAS as before</li>
                 <li>Note 2 - Our extended lodgement dates will generally not show on your BAS copy</li>
@@ -218,17 +219,18 @@ const Home = () => {
                 <p>
                 Following are most Payroll obligations that apply to small business employing staff, and these also apply to business owners drawing a salary, directors fee or super.
                 </p>
-                <Table content ={payRollDates} keys={payRollKeys} tableWidth={type1Width}/>
+                <Table content ={payRollDates} keys={payRollKeys} tableWidth={type1Width} hColor={'#6c63ff'}/>
                 <ul>
                 <li>Note 1 - Super must actually be received by the fund by the due date, so do it a few days beforehand.</li>
                 <li>Note 2 - Super must also be actually paid by 30 June in order to receive an income tax deduction for that year.</li>
             </ul>
                 </div>
         </div>
+        </div>
         <div>
-        <Banner2 image={parallaxImage3} header="Tax Rates" lordicon={lordicon2}/>
-        <div className="container">
-        <div> 
+        <Banner2 image={parallaxImage3} header="Tax Rates" lordicon={lordicon2} fColor={'#fb9999'}/>
+        <div style={{backgroundColor: '#f97a7a38',borderRadius: '16px', margin: '0px 28px'}}>
+        <div className="container" style={{padding:'44px 0px'}}>
             <Divider variant="middle" />
                 <h1><span>
                     <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
@@ -240,7 +242,7 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Residents</h4>     
-                    <Table content ={residentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={residentTaxRates} keys={taxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                     <ul>
                         <li>*2019 rates. Higher thresholds apply for seniors, couples and families with children</li>
                     </ul>
@@ -248,12 +250,12 @@ const Home = () => {
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>Foreign Residents</h4>     
-                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={forResidentTaxRates} keys={taxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
-                    <Table content ={whmTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={whmTaxRates} keys={taxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 {/* <Divider variant="middle" /> */}
                 <div>
@@ -261,7 +263,7 @@ const Home = () => {
                 </div>
                 {/* <Divider variant="middle" /> */}
 
-        </div>
+        
         <div>
         {/* <Divider variant="middle" /> */}
                 <h1><span>
@@ -274,33 +276,33 @@ const Home = () => {
                 </p>
                 <div>
                     <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
-                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Trust Tax Rates</h4>     
-                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Partnership Tax Rates</h4>     
-                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>SMSF Tax Rates</h4>     
-                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 <Divider variant="middle" />
                 <div>
                     <h4 style={styles.tableTitles}>SBE Turnover Thresholds</h4>     
-                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
+                    <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width} hColor={'#fb9999'}/>
                 </div>
                 <div>
                     <span>Company tax calculator  <Button variant="primary">Calculator</Button></span>
                 </div>
             </div>
-
+            </div>
         </div>
         <Banner2 image={parallaxImage4} header="Features" lordicon={lordicon3}/>
         <div className="container">

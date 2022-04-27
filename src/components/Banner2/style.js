@@ -13,13 +13,7 @@ const styles = ({
         
     },
     banner1Header: {
-        fontSize: '120px',
-        //fontStyle: 'italic',
-        fontWeight: '450',
-        color:'#6c63ff',
-        alignItems: 'center',
-        display: 'flex',
-        flexDirection: 'column'
+        
     }
 });
 
