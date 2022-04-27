@@ -1,7 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import Cards from "../../components/Cards/index";
-import parallaxImage from "../../Assets/Images/parallaxImage.jpg";
+import parallaxImage from "../../Assets/Images/top-10-accounting-firms.jpg";
+import parallaxImage1 from "../../Assets/Images/undraw_booking_re_gw4j.svg";
+import parallaxImage2 from "../../Assets/Images/parallaxImage.jpg";
+import parallaxImage3 from "../../Assets/Images/undraw_date_picker_re_r0p8.svg";
+import parallaxImage4 from "../../Assets/Images/undraw_scrum_board_re_wk7v.svg";
+import lordicon1 from "../../Assets/Animations/236-alarm-clock-outline.gif";
+import lordicon2 from "../../Assets/Animations/298-coins-outline.gif";
+import lordicon3 from "../../Assets/Animations/186-puzzle-outline.gif";
+import lordicon4 from "../../Assets/Animations/236-alarm-clock-outline.gif";
 import calendarGif from "../../Assets/Images/calendar.gif"
 import Banner1 from "../../components/Banner1";
 import styles from "./style";
@@ -166,7 +174,7 @@ const Home = () => {
             
             <Cards style={{marginTop: '30px'}} cards = {cards2} color="#d94545"/>
         </div>
-        <Banner2 image={parallaxImage} header="Due Dates" />
+        <Banner2 image={parallaxImage1} header="Due Dates" lordicon={lordicon1} />
         <div className="container">
             <div> 
             <Divider variant="middle" />
@@ -218,7 +226,7 @@ const Home = () => {
                 </div>
         </div>
         <div>
-        <Banner2 image={parallaxImage} header="Tax Rates" />
+        <Banner2 image={parallaxImage3} header="Tax Rates" lordicon={lordicon2}/>
         <div className="container">
         <div> 
             <Divider variant="middle" />
@@ -242,25 +250,25 @@ const Home = () => {
                     <h4 style={styles.tableTitles}>Foreign Residents</h4>     
                     <Table content ={forResidentTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Working Holiday Makers (from 1/1/17)</h4>     
                     <Table content ={whmTaxRates} keys={taxRatesKeys} tableWidth={type2Width}/>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
                 <div>
                     <span>Quick tax estimator  <Button variant="primary">Calculator</Button></span>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
 
         </div>
         <div>
-        <Divider variant="middle" />
+        {/* <Divider variant="middle" /> */}
                 <h1><span>
                     <img src={calendarGif} alt="calendar gif" width="30" height="30"></img>
                     </span>  Business Tax Rates
                 </h1>
-            <Divider variant="middle" />
+            {/* <Divider variant="middle" /> */}
                 <p>
                 The table below shows the latest Small business entity (SBE) & Company tax rates from 2014 to 2020. From 2018 the reduced company tax rates also apply to "Base Rate" entities, that is those that have passive investment income rather than run a small business.
                 </p>
@@ -268,17 +276,17 @@ const Home = () => {
                     <h4 style={styles.tableTitles}>Company Tax Rates</h4>     
                     <Table content ={companyTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Trust Tax Rates</h4>     
                     <Table content ={trustTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>Partnership Tax Rates</h4>     
                     <Table content ={partnerTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
                 </div>
-                <Divider variant="middle" />
+                {/* <Divider variant="middle" /> */}
                 <div>
                     <h4 style={styles.tableTitles}>SMSF Tax Rates</h4>     
                     <Table content ={smsfTaxRates} keys={bsnsTaxRatesKeys} tableWidth={type2Width}/>
@@ -294,7 +302,7 @@ const Home = () => {
             </div>
 
         </div>
-        <Banner2 image={parallaxImage} header="Features" />
+        <Banner2 image={parallaxImage4} header="Features" lordicon={lordicon3}/>
         <div className="container">
 
         </div>

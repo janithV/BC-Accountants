@@ -7,13 +7,19 @@ const styles = ({
         transform: 'translate(-50%, -50%)',
         alignItems: 'center',
         flexDirection: 'column',
-        color: '#fff',
-        textAlign: 'center'
+        color: '#000',
+        textAlign: 'center',
+        display: 'flex'
         
     },
     banner1Header: {
-        fontSize: '80px',
-        fontStyle: 'italic'
+        fontSize: '120px',
+        //fontStyle: 'italic',
+        fontWeight: '450',
+        color:'#6c63ff',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'column'
     }
 });
 

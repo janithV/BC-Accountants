@@ -11,8 +11,9 @@ function taxTable({content,keys,tableWidth}) {
   return (
     <div> 
        <Table
-          style={{marginBottom:20}}
+          style={{margin:'20px 0'}}
           autoHeight
+          hover={true}
           data={content}
           onRowClick={data => {
             console.log(data);
@@ -21,7 +22,7 @@ function taxTable({content,keys,tableWidth}) {
           {keys.map((key, index) => (
               <>
                 <Column width={tableWidth[index]} colSpan={6}>
-                  <HeaderCell style={{fontWeight:'bold'}}>{key}</HeaderCell>
+                  <HeaderCell style={{fontWeight:'bold',background:'#fb9999'}}>{key}</HeaderCell>
                   <Cell dataKey={colsType2[index]} rowIndex={index} key={index}/>
                 </Column>
               </>

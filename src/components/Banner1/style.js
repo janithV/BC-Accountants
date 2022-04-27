@@ -1,3 +1,4 @@
+import { Background } from "react-parallax";
 
 const styles = ({
     banner1: {
@@ -13,6 +14,7 @@ const styles = ({
     },
     banner1Header: {
         fontSize: '40px',
+        fontWeight:'700',
     },
     banner1Description: {
         marginBottom: 20,
@@ -24,9 +26,10 @@ const styles = ({
     headerButton:{
         borderRadius:40,
         fontSize:16,
-        padding:'10 0',
-        fontWeight:'bold',
-        color: 'white'
+        padding:'10px 30px',
+        fontWeight:'500',
+        color: 'white',
+        Background: '#6c63ff'
     },
 });
 
