@@ -680,7 +680,7 @@ const Home = () => {
       }
       <div className="container">
         <div style={styles.homeWelcome}>
-          <h1 style={{ fontSize: 60, padding: "20px 0px 0px 0px" }}>Welcome</h1>
+          <h1 style={{ fontSize: 60,}}>Welcome</h1>
           <h6 style={styles.homeDescription}>
             Fast online business & personal tax returns, financials, advice &
             other services. Lowest flat fees by experts for 25+ years. Simply
