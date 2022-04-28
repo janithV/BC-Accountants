@@ -4,7 +4,7 @@ import Cards from "../../components/Cards/index";
 import parallaxImage from "../../Assets/Images/top-10-accounting-firms.jpg";
 import parallaxImage1 from "../../Assets/Images/undraw_booking_re_gw4j.svg";
 import parallaxImage2 from "../../Assets/Images/parallaxImage.jpg";
-import parallaxImage3 from "../../Assets/Images/undraw_date_picker_re_r0p8.svg";
+import parallaxImage3 from "../../Assets/Images/undraw_date_picker_re_r0p8.png";
 import parallaxImage4 from "../../Assets/Images/undraw_scrum_board_re_wk7v.svg";
 import lordicon1 from "../../Assets/Animations/236-alarm-clock-outline.gif";
 import lordicon2 from "../../Assets/Animations/298-coins-outline.gif";
@@ -18,6 +18,7 @@ import Table from "../../components/Table";
 import Divider from "@mui/material/Divider";
 import { Button } from "react-bootstrap";
 import TableHeader from "../../components/TableHeader";
+import { padding } from "@mui/system";
 const Home = () => {
   const [name, setName] = useState("MNK");
   const [cards1, setCards1] = useState([
@@ -677,9 +678,16 @@ const Home = () => {
           }
         />
       }
-      <div className="container">
+      <div
+        className="container"
+        style={{
+          boxShadow: "#00000029 0px 1px 12px 4px",
+          borderRadius: "20px",
+          paddingBottom: "1px",
+        }}
+      >
         <div style={styles.homeWelcome}>
-          <h1 style={{ fontSize: 60 }}>Welcome</h1>
+          <h1 style={{ fontSize: 60, padding: "20px 0px 0px 0px" }}>Welcome</h1>
           <h6 style={styles.homeDescription}>
             Fast online business & personal tax returns, financials, advice &
             other services. Lowest flat fees by experts for 25+ years. Simply
