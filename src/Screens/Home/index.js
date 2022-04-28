@@ -678,14 +678,7 @@ const Home = () => {
           }
         />
       }
-      <div
-        className="container"
-        style={{
-          boxShadow: "#00000029 0px 1px 12px 4px",
-          borderRadius: "20px",
-          paddingBottom: "1px",
-        }}
-      >
+      <div className="container">
         <div style={styles.homeWelcome}>
           <h1 style={{ fontSize: 60, padding: "20px 0px 0px 0px" }}>Welcome</h1>
           <h6 style={styles.homeDescription}>
